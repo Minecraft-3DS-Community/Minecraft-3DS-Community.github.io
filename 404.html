@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="style.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
+  <title>Minecraft 3DS Community &#8226 Home</title>
+  <style>
+    .header {
+      overflow: visible;
+    }
+    #vines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+    <script>
+        function generateVines() {
+          const vinesContainer = document.getElementById('vines');
+          vinesContainer.innerHTML = "";
+      
+          const vineWidth = 32;
+          const gap = 64;
+          const spacing = vineWidth + gap;
+          const maxHeight = 5;
+          const minLeft = 360;
+      
+          const header = document.querySelector('.header');
+          const headerWidth = header.offsetWidth;
+          vinesContainer.style.width = headerWidth + 'px';
+      
+          const availableWidth = headerWidth - minLeft;
+          const totalColumns = Math.floor(availableWidth / spacing);
+      
+          for (let i = 0; i < totalColumns; i++) {
+            if (i % 4 === 0) continue;
+            const vineHeight = Math.floor(Math.random() * maxHeight) + 1;
+            const left = minLeft + i * spacing;
+      
+            for (let j = 0; j < vineHeight; j++) {
+              const vine = document.createElement('img');
+              vine.src = 'img/bg/vine.png';
+              vine.style.width = vineWidth + 'px';
+              vine.style.position = 'absolute';
+              vine.style.left = `${left}px`;
+              vine.style.top = `${j * vineWidth}px`;
+              vine.style.display = 'block';
+              vinesContainer.appendChild(vine);
+            }
+          }
+        }
+      
+        window.addEventListener('DOMContentLoaded', generateVines);
+      
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            location.reload();
+          }, 250);
+        });
+      </script>
+      
+
+      <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 3.5em; display: flex; align-items: center;" class="header">
+        <a href="index.html" style="text-indent: 1rem;">
+            <span style="color: white; font-size: 20pt; filter: drop-shadow(0 3px 3px black); margin-left: 20px;">
+                <img src="img/New_Nintendo_3DS_Edition.webp" style="width: 180px; vertical-align: middle; position: relative; bottom: 3px; image-rendering: auto;">
+                <span style="position: absolute; display: inline-block; color: yellow; transform-origin: left; transform: translateX(-100px) translateY(25px) scale(0.65) rotate(-15deg); animation: scaleText 2s ease-in-out infinite;">
+                    Community
+                </span>
+            </span>
+        </a>
+    
+        <div id="vines" class="vines">
+        </div>
+    </div>
+    
+
+    <div class="dropDownContainer closed">
+        <div class="dropDown">
+            <div style="margin-top: 8px; margin-left: 15px; line-height: 2; font-size: 16pt; filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.3)); height: 100%;">
+                <span class="dropDownItems" onclick="window.location.href='index.html';">
+                    <img src="img/gui/home.png" alt="Home">Home
+                    <img src="img/gui/expfull.png" class="expImage" data-full="img/gui/expfull.png" alt="Expand">
+                </span>                
+                <img src="img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='index.html';">
+                    <img src="img/gui/unistore.png" style="position: relative; bottom: 1px;">Unistore
+                    <img src="img/gui/expfull.png" class="expImage" data-full="img/gui/expfull.png">
+                </span>
+                <img src="img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
+                    <img src="img/gui/mods.png" style="position: relative; bottom: 1px;">Mods
+                    <img src="img/gui/expfull.png" class="expImage" data-full="img/gui/expfull.png">
+                </span>
+                <img src="img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
+                    <img src="img/gui/tools.png">Tools
+                    <img src="img/gui/expfull.png" class="expImage" data-full="img/gui/expfull.png">
+                </span>
+                <img src="img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
+                    <img src="img/gui/tutorials.png" style="position: relative; right: 1px;">Tutorials
+                    <img src="img/gui/expfull.png" class="expImage" data-full="img/gui/expfull.png">
+                </span>
+                <img src="img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
+                    <img src="img/gui/faqs.png" style="position: relative; bottom: 1px;">FAQs
+                    <img src="img/gui/expfull.png" class="expImage" data-full="img/gui/expfull.png">
+                </span>
+                <img src="img/gui/exp.png" style="position: absolute;">
+                <img src="img/gui/config.png" style="position: absolute; right: 10px; bottom: 20px; width: 30px;">
+            </div>
+        </div>
+        <div class="dropDownButton" id="dropDownToggle">
+            <img src="img/gui/arrow.png" style="width: 32px;" id="dropDownArrow">
+        </div>
+    </div>
+    
+
+<script>
+    document.getElementById("dropDownToggle").addEventListener("click", function () {
+        const container = document.querySelector(".dropDownContainer");
+        const arrow = document.getElementById("dropDownArrow");
+    
+        container.classList.toggle("closed");
+        arrow.classList.toggle("flipped");
+    });
+</script>
+
+
+</body>
+</html>
