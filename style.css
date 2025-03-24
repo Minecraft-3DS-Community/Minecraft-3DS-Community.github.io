@@ -267,7 +267,7 @@ body {
         left: calc(50vw - 275px * 0.5);
     }
     #vines {
-        transform: translateX(90px);
+        margin-left: -400px !important;
     }
 }
 
