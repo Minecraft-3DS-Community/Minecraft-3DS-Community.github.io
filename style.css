@@ -103,7 +103,7 @@ body {
 }
 
 .dropDownButton:active {
-    filter: sepia(1) hue-rotate(180deg) brightness(0.85);
+    filter: sepia(1) hue-rotate(180deg) brightness(1) saturate(1.5);
     cursor: pointer;
 }
 
@@ -170,6 +170,16 @@ body {
     height: 100%;
     pointer-events: none;
     clip: rect(0, 100vw, 100vh, 0);
+}
+
+#manualVines {
+    display: none;
+}
+
+@media (max-width: 540px) {
+    #manualVines {
+        display: block;
+    }
 }
 
 .text-container {
