@@ -239,9 +239,6 @@ body {
         border-left: none;
         max-height: 300px;
     }
-    .newsKeyArt {
-        display: none;
-    }
     .newsHeader {
         position: relative;
         top: 0px;
@@ -254,6 +251,7 @@ body {
     z-index: 6;
     bottom: 4px;
     padding-bottom: 3px;
+    padding-top: 10px;
     font-size: 18pt;
     font-family: 'Minecraft Regular';
     color: white;
