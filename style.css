@@ -242,6 +242,7 @@ body {
     .newsHeader {
         position: relative;
         top: 0px;
+        padding-top: 0px !important;
     }
 }
 
