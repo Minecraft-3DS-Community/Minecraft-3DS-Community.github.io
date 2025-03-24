@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="style.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
+  <link rel="stylesheet" href="plugins/flickity/flickity.css" media="screen">
+  <script src="plugins/flickity/flickity.pkgd.js"></script>
   <title>Minecraft 3DS Community &#8226 Home</title>
   <style>
     .header {
@@ -20,54 +22,6 @@
   </style>
 </head>
 <body>
-    <script>
-        function generateVines() {
-          const vinesContainer = document.getElementById('vines');
-          vinesContainer.innerHTML = "";
-      
-          const vineWidth = 32;
-          const gap = 64;
-          const spacing = vineWidth + gap;
-          const maxHeight = 2;
-          const minLeft = 360;
-      
-          const header = document.querySelector('.header');
-          const headerWidth = header.offsetWidth;
-          vinesContainer.style.width = headerWidth + 'px';
-      
-          const availableWidth = headerWidth - minLeft;
-          const totalColumns = Math.floor(availableWidth / spacing);
-      
-          for (let i = 0; i < totalColumns; i++) {
-            if (i % 4 === 0) continue;
-            const vineHeight = Math.floor(Math.random() * maxHeight) + 1;
-            const left = minLeft + i * spacing;
-      
-            for (let j = 0; j < vineHeight; j++) {
-              const vine = document.createElement('img');
-              vine.src = 'img/bg/vine.png';
-              vine.style.width = vineWidth + 'px';
-              vine.style.position = 'absolute';
-              vine.style.left = `${left}px`;
-              vine.style.top = `${j * vineWidth}px`;
-              vine.style.display = 'block';
-              vinesContainer.appendChild(vine);
-            }
-          }
-        }
-      
-        window.addEventListener('DOMContentLoaded', generateVines);
-      
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-          clearTimeout(resizeTimeout);
-          resizeTimeout = setTimeout(() => {
-            location.reload();
-          }, 250);
-        });
-      </script>
-      
-
       <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 3.5em; display: flex; align-items: center;" class="header">
         <a href="index.html" style="text-indent: 1rem;">
             <span style="color: white; font-size: 20pt; filter: drop-shadow(0 3px 3px black); margin-left: 45px;">
@@ -98,7 +52,7 @@
                     <img src="img/gui/expfull.png" class="expImage" data-full="img/gui/expfull.png" alt="Expand">
                 </span>                
                 <img src="img/gui/exp.png" style="position: absolute;">
-                <span class="dropDownItems" onclick="window.location.href='index.html';">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
                     <img src="img/gui/unistore.png" style="position: relative; bottom: 1px;">Unistore
                     <img src="img/gui/expfull.png" class="expImage" data-full="img/gui/expfull.png">
                 </span>
@@ -138,45 +92,58 @@
         </div>
     </div>
     
-
-<script>
-    document.getElementById("dropDownToggle").addEventListener("click", function () {
-        const container = document.querySelector(".dropDownContainer");
-        const arrow = document.getElementById("dropDownArrow");
-    
-        container.classList.toggle("closed");
-        arrow.classList.toggle("flipped");
-    });
-</script>
-
-<script>
-  document.addEventListener('click', function(event) {
-    const dropDownContainer = document.querySelector('.dropDownContainer');
-    const dropDownButton = document.querySelector('.dropDownButton');
-    const dropDownArrow = document.querySelector('#dropDownArrow');
-    
-    if (!dropDownContainer.contains(event.target) && !dropDownButton.contains(event.target)) {
-        dropDownContainer.classList.add('closed'); 
-        dropDownArrow.classList.remove('flipped'); 
-    }
-});
-
-dropDownButton.addEventListener('click', function(event) {
-    event.stopPropagation();
-    
-    dropDownContainer.classList.toggle('closed');
-    
-    dropDownArrow.classList.toggle('flipped');
-});
-
-</script>
-    
 <div class="text-container">
   <div class="main-text">
+
     <br>
     <br>
-    <h1>Home</h1>
-    <i>This page is under construction. Come back soon!</i>
+    <br>
+    <!--wyndchyme was here. Do not remove the Unistore cell, please.-->
+    <div class="gallery js-flickity" data-flickity-options='{"autoPlay": 3500, "wrapAround": true}' style="filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));">
+  <div class="gallery-cell" style="background-color: rgb(74, 110, 157);">
+    <img src="img/logos/unistore.png" style="width:200px; position: relative; filter: drop-shadow(0 1px 1px black);" onclick="window.location.href='https://github.com/Minecraft-3DS-Community/Minecraft-3ds-unistore';" class="logoCell">
+  </div>
+  <div class="gallery-cell">
+    <img src="img/news/entry5-0.webp" style="width: 500px; position: relative;">
+    <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+    <gallerysubtitle><a href="https://github.com/Cracko298/mc3ds-creaking" style="color: white;">The Creaking</a></gallerysubtitle>
+  </div>
+  <div class="gallery-cell">
+    <img src="img/news/featured/autumnal.png" style="width: 500px; position: relative;">
+    <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+    <gallerysubtitle><a href="https://github.com/wyndchyme/mc3ds-autumnal" style="color: white;">Autumnal</a></gallerysubtitle>
+  </div>
+  <div class="gallery-cell">
+    <img src="img/news/featured/endermanyk.png" style="width: 300px; position: relative;">
+    <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+    <gallerysubtitle><a href="https://github.com/Minecraft-3DS-Community/Minecraft-3ds-unistore" style="color: white;">ENDERMANYK's Shaders</a></gallerysubtitle>
+  </div>
+  <div class="gallery-cell" style="background-color: rgb(200, 156, 69);">
+    <img src="img/logos/megapack.png" style="width:195px; position: relative; filter: drop-shadow(0 1px 1px black);" onclick="window.location.href='https://github.com/wyndchyme/mc3ds-modern';" class="logoCell">
+  </div>
+  <div class="gallery-cell">
+    <img src="img/news/featured/mobvariations.webp" style="width: 500px; position: relative;">
+    <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+    <gallerysubtitle><a href="https://github.com/pizza-beep/MC3DS-mob-variations" style="color: white;">Mob Variations</a></gallerysubtitle>
+  </div>
+  <div class="gallery-cell">
+    <img src="img/news/featured/grimes.png" style="width: 300px; position: relative;">
+    <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+    <gallerysubtitle><a href="https://github.com/sewene/mc3ds-grimes" style="color: white;">mc3ds-grimes</a></gallerysubtitle>
+  </div>
+  <div class="gallery-cell">
+    <img src="img/news/featured/sinkdontswim.webp" style="width: 300px; position: relative;">
+    <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+    <gallerysubtitle><a href="https://github.com/Minecraft-3DS-Community/Minecraft-3ds-unistore" style="color: white;">Sink, Don't Swim!</a></gallerysubtitle>
+  </div>
+  <div class="gallery-cell">
+    <img src="img/news/featured/faithless.webp" style="width: 300px; position: relative;">
+    <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+    <gallerysubtitle><a href="https://github.com/Minecraft-3DS-Community/Minecraft-3ds-unistore" style="color: white;">Faithless</a></gallerysubtitle>
+  </div>
+</div>
+<br>
+
   </div>
   <div class="sidebar">
     <div class="newsHeader">Latest News</div>
@@ -397,28 +364,9 @@ dropDownButton.addEventListener('click', function(event) {
   </div>
 </div>
 
-<script>
-document.querySelectorAll('details').forEach(details => {
-  details.open = true; // Force it open
-
-  // Remove the <summary> if present
-  const summary = details.querySelector('summary');
-  if (summary) {
-    summary.remove();
-  }
-
-  // Move the rest of the content out of <details>
-  const parent = details.parentNode;
-  while (details.firstChild) {
-    parent.insertBefore(details.firstChild, details);
-  }
-
-  // Remove the <details> tag itself
-  parent.removeChild(details);
-});
-
-</script>
-
+<script src="scripts/main/dropdown.js"></script>
+<script src="scripts/main/nodetails.js"></script>
+<script src="scripts/main/vines.js"></script>
 
 </body>
 </html>
