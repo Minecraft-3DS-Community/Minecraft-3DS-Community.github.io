@@ -172,16 +172,6 @@ body {
     clip: rect(0, 100vw, 100vh, 0);
 }
 
-#manualVines {
-    display: none;
-}
-
-@media (max-width: 540px) {
-    #manualVines {
-        display: block;
-    }
-}
-
 .text-container {
     display: flex;
     flex-wrap: wrap;
