@@ -185,7 +185,6 @@ body {
 .text-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
     font-family: 'Helvetica';
     margin-top: 3.5em;
 }
@@ -244,6 +243,7 @@ body {
 @media (max-width: 768px) {
     .text-container {
       flex-direction: column;
+      gap: 20px;
     }
     .sidebar {
         border-left: none;
@@ -253,6 +253,21 @@ body {
         position: relative;
         top: 0px;
         padding-top: 0px !important;
+    }
+    .main-text {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .logo {
+        margin-left: 0 !important;
+        position: relative;
+        left: calc(50vw - 105px);
+    }
+    .dropDownContainer {
+        left: calc(50vw - 275px * 0.5);
+    }
+    #vines {
+        transform: translateX(90px);
     }
 }
 
