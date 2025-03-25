@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-    background-color: #515151;
+    background-color: rgb(43, 64, 43);
 }
 
 .header {
@@ -199,7 +199,80 @@ body {
     min-width: 250px;
     margin-left: 15px;
     margin-right: 15px;
+    height: 100%;
 }
+
+.homeBody {
+    position: relative;
+    top: 30px;
+    font-family: 'Minecraft Regular';
+    color: white;
+    font-size: 16pt;
+    line-height: 1.4;
+    text-indent: 1.5em;
+}
+
+.homeBody iframe {
+    width: calc(100% - 20px);
+    height: 75%;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+    border: 10px solid rgba(0, 0, 0, 0.3); box-sizing: border-box;
+}
+
+.didYouKnow {
+    width: 30%;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(img/bg/netherrack.png);
+    background-size: 32px;
+    position: absolute;
+    right: 0;
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    filter: drop-shadow(0 5px 2px rgba(0, 0, 0, 0.5));
+    min-height: 275px;
+    height: 330px
+}
+
+.didYouKnowHeader {
+    color: rgb(255, 214, 202);
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url(img/bg/nether_bricks.png);
+    background-size: 32px;
+    image-rendering: pixelated;
+    font-size: 16pt;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 1000px) {
+    .didYouKnowHeader {
+        font-size: 11pt;
+    }
+    .didYouKnowBody {
+        font-size: 12pt !important;
+    }
+}
+
+.didYouKnowBody {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    text-indent: 1em;
+    flex: 1;
+    font-size: 15pt;
+}
+
+.featuredVideo {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url(img/bg/stone_bricks.png);;
+    background-size: 32px;
+    filter: drop-shadow(0 5px 2px rgba(0, 0, 0, 0.5));
+}
+
   
 .sidebar {
     flex: 1 1 30%;
@@ -222,6 +295,7 @@ body {
 
 .news h1 {
     color: rgb(255, 255, 184);
+    font-weight: normal !important;
 }
 
 .news h2 {
@@ -231,6 +305,7 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
     padding-bottom: 5px;
     padding-left: 5px;
+    font-weight: normal !important;
 }
 
 .news a {
@@ -249,6 +324,9 @@ body {
     .sidebar {
         border-left: none;
         max-height: 300px;
+        margin-left: 15px;
+        margin-right: 15px;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
     }
     .newsHeader {
         position: relative;
@@ -269,6 +347,38 @@ body {
     }
     #vines {
         margin-left: -400px !important;
+    }
+    .homeBody {
+        position: absolute;
+        top: 615px;
+        margin-left: 25px !important;
+        margin-right: 25px !important;
+        font-size: 15pt;
+    }
+    .homeIntro {
+        position: relative;
+        right: 15px;
+    }
+    .didYouKnow {
+    width: 40vw;
+    }
+    .featuredVideo {
+        width: 50vw !important;
+    }
+    .didYouKnowHeader {
+        font-size: 14pt !important;
+    }
+    .didYouKnowBody {
+        font-size: 13pt !important;
+    }
+}
+
+@media (max-width: 550px) {
+    .didYouKnow {
+        display: none;
+    }
+    .featuredVideo {
+        width: 100% !important;
     }
 }
 
@@ -351,4 +461,10 @@ gallerysubtitle a {
     font-style: normal;
     font-weight: normal;
     src: local('Minecraft Regular'), url('/plugins/font/1_MinecraftRegular1.woff') format('woff');
+}
+
+@media (max-width: 450px) {
+    .copyrightDiv {
+        font-size: 9pt !important;
+    }
 }

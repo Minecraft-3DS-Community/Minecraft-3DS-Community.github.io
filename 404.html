@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="style.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
-  <title>Minecraft 3DS Community &#8226 Home</title>
+  <link rel="stylesheet" href="plugins/flickity/flickity.css" media="screen">
+  <script src="plugins/flickity/flickity.pkgd.js"></script>
+  <title>Home &#8226 Minecraft 3DS Community</title>
   <style>
     .header {
       overflow: visible;
@@ -20,57 +22,9 @@
   </style>
 </head>
 <body>
-    <script>
-        function generateVines() {
-          const vinesContainer = document.getElementById('vines');
-          vinesContainer.innerHTML = "";
-      
-          const vineWidth = 32;
-          const gap = 64;
-          const spacing = vineWidth + gap;
-          const maxHeight = 5;
-          const minLeft = 360;
-      
-          const header = document.querySelector('.header');
-          const headerWidth = header.offsetWidth;
-          vinesContainer.style.width = headerWidth + 'px';
-      
-          const availableWidth = headerWidth - minLeft;
-          const totalColumns = Math.floor(availableWidth / spacing);
-      
-          for (let i = 0; i < totalColumns; i++) {
-            if (i % 4 === 0) continue;
-            const vineHeight = Math.floor(Math.random() * maxHeight) + 1;
-            const left = minLeft + i * spacing;
-      
-            for (let j = 0; j < vineHeight; j++) {
-              const vine = document.createElement('img');
-              vine.src = 'img/bg/vine.png';
-              vine.style.width = vineWidth + 'px';
-              vine.style.position = 'absolute';
-              vine.style.left = `${left}px`;
-              vine.style.top = `${j * vineWidth}px`;
-              vine.style.display = 'block';
-              vinesContainer.appendChild(vine);
-            }
-          }
-        }
-      
-        window.addEventListener('DOMContentLoaded', generateVines);
-      
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-          clearTimeout(resizeTimeout);
-          resizeTimeout = setTimeout(() => {
-            location.reload();
-          }, 250);
-        });
-      </script>
-      
-
       <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 3.5em; display: flex; align-items: center;" class="header">
         <a href="index.html" style="text-indent: 1rem;">
-            <span style="color: white; font-size: 20pt; filter: drop-shadow(0 3px 3px black); margin-left: 20px;">
+            <span style="color: white; font-size: 20pt; filter: drop-shadow(0 3px 3px black); margin-left: 45px;" class="logo">
                 <img src="img/New_Nintendo_3DS_Edition.webp" style="width: 180px; vertical-align: middle; position: relative; bottom: 3px; image-rendering: auto;">
                 <span style="position: absolute; display: inline-block; color: yellow; transform-origin: left; transform: translateX(-100px) translateY(25px) scale(0.65) rotate(-15deg); animation: scaleText 2s ease-in-out infinite;">
                     Community
@@ -80,6 +34,12 @@
     
         <div id="vines" class="vines">
         </div>
+
+        <div class="vines" id="leftVines">
+          <img src="img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 0;">
+          <img src="img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 32px;">
+        </div>
+        <!--wyndchyme was here. These left vines will only appear on smaller video widths.-->
     </div>
     
 
@@ -91,7 +51,7 @@
                     <img src="img/gui/expfull.png" class="expImage" data-full="img/gui/expfull.png" alt="Expand">
                 </span>                
                 <img src="img/gui/exp.png" style="position: absolute;">
-                <span class="dropDownItems" onclick="window.location.href='index.html';">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
                     <img src="img/gui/unistore.png" style="position: relative; bottom: 1px;">Unistore
                     <img src="img/gui/expfull.png" class="expImage" data-full="img/gui/expfull.png">
                 </span>
@@ -116,25 +76,25 @@
                     <img src="img/gui/expfull.png" class="expImage" data-full="img/gui/expfull.png">
                 </span>
                 <img src="img/gui/exp.png" style="position: absolute;">
-                <img src="img/gui/config.png" style="position: absolute; right: 10px; bottom: 20px; width: 30px;">
+                <div class="dropDownLinks">
+                  <img src="img/links/github.png" style="position: absolute; right: 12px; bottom: 196px; width: 24px;" onclick="window.location.href='https://github.com/Minecraft-3DS-Community';">
+                  <img src="img/links/speedrun.png" style="position: absolute; right: 10px; bottom: 160px; width: 28px;" onclick="window.location.href='https://www.speedrun.com/mc3ds';">
+                  <img src="img/links/twitter.png" style="position: absolute; right: 12px; bottom: 130px; width: 23px;" onclick="window.location.href='https://x.com/minecraft3ds_';">
+                  <img src="img/links/reddit.png" style="position: absolute; right: 13px; bottom: 93px; width: 23px;" onclick="window.location.href='https://www.reddit.com/r/Minecraft3DS/';">
+                  <img src="img/links/discord.png" style="position: absolute; right: 10px; bottom: 55px; width: 30px;" onclick="window.location.href='https://discord.com/invite/PcfekvmjSw';">
+                  <img src="img/links/dev.png" style="position: absolute; right: 12px; bottom: 26px; width: 25px;" onclick="window.location.href='404.html';">
+                </div>
             </div>
         </div>
         <div class="dropDownButton" id="dropDownToggle">
             <img src="img/gui/arrow.png" style="width: 32px;" id="dropDownArrow">
         </div>
     </div>
+
+    <script src="scripts/main/dropdown.js"></script>
+    <script src="scripts/main/nodetails.js"></script>
+    <script src="scripts/main/vines.js"></script>
+    <script src="scripts/main/sidebarfit.js"></script>
     
-
-<script>
-    document.getElementById("dropDownToggle").addEventListener("click", function () {
-        const container = document.querySelector(".dropDownContainer");
-        const arrow = document.getElementById("dropDownArrow");
-    
-        container.classList.toggle("closed");
-        arrow.classList.toggle("flipped");
-    });
-</script>
-
-
-</body>
-</html>
+  </body>
+  </html>
