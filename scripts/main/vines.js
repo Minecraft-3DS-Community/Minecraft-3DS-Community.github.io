@@ -22,7 +22,7 @@ function generateVines() {
 
     for (let j = 0; j < vineHeight; j++) {
       const vine = document.createElement('img');
-      vine.src = 'img/bg/vine.png';
+      vine.src = '/img/bg/vine.png';
       vine.style.width = vineWidth + 'px';
       vine.style.position = 'absolute';
       vine.style.left = `${left}px`;
