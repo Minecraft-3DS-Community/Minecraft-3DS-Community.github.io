@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/style.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
+  <link rel="stylesheet" href="/plugins/flickity/flickity.css" media="screen">
+  <script src="/plugins/flickity/flickity.pkgd.js"></script>
+  <title>Unistore &#8226 Minecraft 3DS Community</title>
+  <style>
+    .header {
+      overflow: visible;
+    }
+    #vines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      pointer-events: none;
+    }
+    body {
+        background-color: #224368;
+    }
+    .unistoreHeader {
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        top: 3.5em;
+        background: linear-gradient(rgba(2, 17, 25, 0.9), rgba(2, 56, 83, 0.7)), url(/img/bg/chiseled_quartz_block_top.png);
+        background-size: 32px;
+        image-rendering: pixelated;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.5));
+    }
+    .gallery {
+        height: 175px;
+        overflow: hidden;
+        margin-top: 275px;
+    }
+    .flickity-page-dots {
+        position: relative;
+        bottom: -10px !important;
+    }
+    /* wyndchyme was here. Please don't ask. */
+    .responsive-columns {
+       display: flex;
+        gap: 20px;
+        font-family: 'Minecraft Regular';
+        font-size: 14pt;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 30px;
+    }
+    .columnHeader {
+      font-size: 16pt;
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 100%;
+      padding-bottom: 4px;
+      color: rgb(213, 245, 255);
+    }
+    .column {
+      flex: 1;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      line-height: 1.5;
+      text-indent: 1em;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    }
+    .column a {
+      text-decoration: none;
+      color: skyblue;
+    }
+    .column a:hover {
+      color: rgb(66, 186, 233);
+    }
+    @media (max-width: 600px) {
+      .responsive-columns {
+        flex-direction: column;
+      }
+    }
+    .linkButton {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 7px;
+      padding-right: 10px;
+      transition: 0.15s;
+      display: flex;
+      width: fit-content;
+      border-radius: 5px;
+      color: rgb(213, 245, 255);
+      box-shadow: 0 3px 2px rgba(0, 0, 0, 0.5);
+    }
+    .linkButton:hover {
+      background-color: rgba(255, 255, 255, 0.35);
+      cursor: pointer;
+      box-shadow: 0 2px 2px rgba(255, 255, 255, 0.5);
+    }
+    .linkButton img {
+      width: 20px;
+      height: 20px;
+      align-self: center;
+      justify-self: center;
+      margin-right: -8px;
+      margin-left: 3px;
+    }
+    .featuredWorlds {
+      color: white;
+      width: calc(100% - 30px);
+      text-align: center;
+      font-family: 'Minecraft Regular';
+      font-size: 17pt;
+      background-color: rgba(255, 255, 255, 0.35);
+      padding-top: 5px;
+      padding-bottom: 5px;
+      position: relative;
+      height: 265px;
+      left: 15px;
+      margin-bottom: 30px
+    }
+    .flickity-button {
+      transform: translateY(-45px);
+    }
+  </style>
+</head>
+<body>
+      <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 3.5em; display: flex; align-items: center;" class="header">
+        <a href="/index.html" style="text-indent: 1rem;">
+            <span style="color: white; font-size: 20pt; filter: drop-shadow(0 3px 3px black); margin-left: 45px;" class="logo">
+                <img src="/img/New_Nintendo_3DS_Edition.webp" style="width: 180px; vertical-align: middle; position: relative; bottom: 3px; image-rendering: auto;">
+                <span style="position: absolute; display: inline-block; color: yellow; transform-origin: left; transform: translateX(-100px) translateY(25px) scale(0.65) rotate(-15deg); animation: scaleText 2s ease-in-out infinite;">
+                    Community
+                </span>
+            </span>
+        </a>
+    
+        <div id="vines" class="vines">
+        </div>
+
+        <div class="vines" id="leftVines">
+          <img src="/img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 0;">
+          <img src="/img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 32px;">
+        </div>
+        <!--wyndchyme was here. These left vines will only appear on smaller video widths.-->
+    </div>
+    
+
+    <div class="dropDownContainer closed">
+        <div class="dropDown">
+            <div style="margin-top: 8px; margin-left: 15px; line-height: 2; font-size: 16pt; filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.3)); height: 100%;">
+                <span class="dropDownItems" onclick="window.location.href='/index.html';">
+                    <img src="/img/gui/home.png" alt="Home">Home
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png" alt="Expand">
+                </span>                
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='/unistore/index.html';">
+                    <img src="/img/gui/unistore.png" style="position: relative; bottom: 1px;">Unistore
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png">
+                </span>
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
+                    <img src="/img/gui/mods.png" style="position: relative; bottom: 1px;">Mods
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png">
+                </span>
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
+                    <img src="/img/gui/tools.png">Tools
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png">
+                </span>
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
+                    <img src="/img/gui/tutorials.png" style="position: relative; right: 1px;">Tutorials
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png">
+                </span>
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
+                    <img src="/img/gui/faqs.png" style="position: relative; bottom: 1px;">FAQs
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png">
+                </span>
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <div class="dropDownLinks">
+                  <img src="/img/links/github.png" style="position: absolute; right: 12px; bottom: 196px; width: 24px;" onclick="window.location.href='https://github.com/Minecraft-3DS-Community';">
+                  <img src="/img/links/speedrun.png" style="position: absolute; right: 10px; bottom: 160px; width: 28px;" onclick="window.location.href='https://www.speedrun.com/mc3ds';">
+                  <img src="/img/links/twitter.png" style="position: absolute; right: 12px; bottom: 130px; width: 23px;" onclick="window.location.href='https://x.com/minecraft3ds_';">
+                  <img src="/img/links/reddit.png" style="position: absolute; right: 13px; bottom: 93px; width: 23px;" onclick="window.location.href='https://www.reddit.com/r/Minecraft3DS/';">
+                  <img src="/img/links/discord.png" style="position: absolute; right: 10px; bottom: 55px; width: 30px;" onclick="window.location.href='https://discord.com/invite/PcfekvmjSw';">
+                  <img src="/img/links/dev.png" style="position: absolute; right: 12px; bottom: 26px; width: 25px;" onclick="window.location.href='/attributions/index.html';">
+                </div>
+            </div>
+        </div>
+        <div class="dropDownButton" id="dropDownToggle">
+            <img src="/img/gui/arrow.png" style="width: 32px;" id="dropDownArrow">
+        </div>
+    </div>
+
+    <div class="unistoreHeader">
+        <div style="background: linear-gradient(rgba(97, 133, 152, 0.9), rgba(80, 127, 150, 0.7)), url(/img/bg/chiseled_quartz_block_top.png); background-size: 32px; height: 100%; display: flex; align-items: center; padding-left: 30%; padding-right: 30%; border-left: 4px solid rgba(0, 0, 0, 0.1); border-right: 4px solid rgba(0, 0, 0, 0.1);">
+        <img src="/img/logos/unistore.png" style="max-width: 500px; width: 30vw; min-width: 400px; image-rendering: auto;">
+        </div>
+    </div>
+
+    <div class="gallery js-flickity" data-flickity-options='{"autoPlay": 3500, "wrapAround": true}' style="filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5)); margin-top: 275px;">
+        <div class="gallery-cell">
+          <img src="/img/news/featured/halloween.jpg" style="width: 500px; position: relative;">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>New releases</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+          <img src="/unistore/img/wewelsburg.png" style="width: 500px; position: relative;">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>Exclusive mods</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+          <img src="/unistore/img/uu.png" style="width: 250px; position: relative;">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>Easy installation</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+          <img src="/unistore/img/villager.png" style="width: 300px; position: relative;">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>Automatic sync</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+          <img src="/unistore/img/issues.png" style="width: 300px; position: relative;">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>Issue reporting</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+          <img src="/unistore/img/better-creepers.png" style="width: 300px; position: relative;">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>More ways to play</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+            <img src="/unistore/img/homebrew.png" style="width: 400px; position: relative; top: 40px;">
+            <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+            <gallerysubtitle>Homebrew apps</gallerysubtitle>
+          </div>
+      </div>
+
+      <br>
+
+      <div class="responsive-columns">
+        <div class="column">
+          <div class="columnHeader">About the Unistore</div>
+          <div style="margin-left: 15px; position: relative; top: 15px;">
+          The Minecraft 3DS Community Unistore contains a catalog of community-made mods, worlds, and other content - avaliable for download directly from your console via Universal-Updater.<br><br>
+        <div>
+        <span class="linkButton" onclick="window.location.href='https://github.com/Minecraft-3DS-Community/minecraft-3ds-unistore';"><img src="/img/links/github.png" style="position: relative; bottom: 1px;"><span>GitHub Repository</span></span><br>
+        <span class="linkButton" onclick="window.location.href='https://github.com/Universal-Team/Universal-Updater/releases';"><img src="/img/links/uu.png" style="width: 23px; height: 23px; margin-right: -8px;"><span>Universal-Updater</span></span><br><br></div>
+      </div>
+        </div>
+
+        <div class="column" style="background-color: rgba(255, 255, 255, 0.2);">
+          <div class="columnHeader">Installation</div>
+          <div style="margin-left: 5px; margin-right: 5px;">
+            <ol>
+              <li>Open <u>Universal-Updater</u></li>
+              <li>Navigate to Settings → Select Unistore → Add</li>
+              <li>Open the Recommended UniStores page</li>
+              <li>Select the Minecraft 3DS Community Unistore.</li>
+              </ol>
+              <hr><br>
+              <i>For a more extensive guide, see the guide on <a href="https://minecraft-3ds-community.github.io/Minecraft3DS-Wiki/sections/unistore-content.html">the wiki</a> or on the Community Discord.</i>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="featuredWorlds"><div style="position: relative; top: -5px; width: 100%; background-color: rgba(255, 255, 255, 0.35); padding-top: 8px; padding-bottom: 10px; box-shadow: 0 4px 2px rgba(0, 0, 0, 0.2);">Featured Worlds</div>
+      <div class="gallery js-flickity" data-flickity-options='{"autoPlay": 3500, "wrapAround": true}' style="filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5)); position: relative; bottom: 260px; height: 200px; margin-left: 15px; margin-right: 15px;">
+        <div class="gallery-cell">
+          <img src="/unistore/img/worlds/wewelsburg.png" style="width: 500px; position: relative;">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>Wewelsburg</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+          <img src="/unistore/img/worlds/shadowmere.png" style="width: 500px; position: relative;">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>Castle of Shadowmere</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+          <img src="/unistore/img/worlds/skyplus.png" style="width: 250px; position: relative;">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>Skyblock+</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+          <img src="/unistore/img/worlds/farlands.png" style="width: 300px; position: relative; filter: brightness(2);">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>Farlandia</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+          <img src="/unistore/img/worlds/dropper.png" style="width: 300px; position: relative;">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>The Dropper</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+          <img src="/unistore/img/worlds/poketube.png" style="width: 300px; position: relative;">
+          <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+          <gallerysubtitle>PokeTube City</gallerysubtitle>
+        </div>
+        <div class="gallery-cell">
+            <img src="/unistore/img/worlds/pangames.png" style="width: 400px; position: relative; top: 40px;">
+            <div style="background-color: rgba(21, 40, 70, 0.5); position: absolute; padding-left: 300px; padding-bottom: 20px; bottom: 0;">IO</div>
+            <gallerysubtitle>PanGames</gallerysubtitle>
+          </div>
+      </div>
+    </div>
+
+    <script src="/scripts/main/dropdown.js"></script>
+    <script src="/scripts/main/vines.js"></script>
+    
+  </body>
+  </html>
