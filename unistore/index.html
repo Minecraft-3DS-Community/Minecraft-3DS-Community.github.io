@@ -131,6 +131,23 @@
         width: 300px !important;
       }
     }
+    .gallery-cell {
+      border: 2px solid white;
+    }
+    .featuredHeader {
+      position: relative;
+      top: -5px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.35);
+      padding: 8px 0 10px 0;
+      box-shadow: 0 4px 2px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;  
+      align-items: center;     
+      gap: 10px;               
+    }
+
+
   </style>
 </head>
 <body>
@@ -250,7 +267,7 @@
       <br>
 
       <div class="responsive-columns">
-        <div class="column">
+        <div class="column" style="border: 2px solid black; outline: 2px solid white;">
           <div class="columnHeader">About the Unistore</div>
           <div style="margin-left: 15px; position: relative; top: 15px;">
           The Minecraft 3DS Community Unistore contains a catalog of community-made mods, worlds, and other content - avaliable for download directly from your console via Universal-Updater.<br><br>
@@ -260,7 +277,7 @@
       </div>
         </div>
 
-        <div class="column" style="background-color: rgba(255, 255, 255, 0.2);">
+        <div class="column" style="background-color: rgba(255, 255, 255, 0.2); border: 2px solid black; outline: 2px solid white;">
           <div class="columnHeader">Installation</div>
           <div style="margin-left: 5px; margin-right: 5px;">
             <ol>
@@ -276,7 +293,11 @@
         </div>
       </div>
 
-      <div class="featuredWorlds"><div style="position: relative; top: -5px; width: 100%; background-color: rgba(255, 255, 255, 0.35); padding-top: 8px; padding-bottom: 10px; box-shadow: 0 4px 2px rgba(0, 0, 0, 0.2);">Featured Worlds</div>
+      <div class="featuredWorlds">
+        <div class="featuredHeader">
+          <img src="/img/gui/oreui/worlds.png" alt="Icon">
+          Featured Worlds
+        </div>
       <div class="gallery js-flickity" data-flickity-options='{"autoPlay": 3500, "wrapAround": true}' style="filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5)); position: relative; bottom: 260px; height: 200px; margin-left: 15px; margin-right: 15px;">
         <div class="gallery-cell">
           <img src="/unistore/img/worlds/wewelsburg.png" style="width: 500px; position: relative;">
