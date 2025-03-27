@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/style.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
+  <link rel="stylesheet" href="/plugins/flickity/flickity.css" media="screen">
+  <script src="/plugins/flickity/flickity.pkgd.js"></script>
+  <title>Mods &#8226 Minecraft 3DS Community</title>
+  <style>
+    html, body {
+        height: 100%;
+    }
+    .header {
+      overflow: visible;
+    }
+    #vines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      pointer-events: none;
+    }
+    body {
+        background-color: rgb(213, 198, 194);
+    }
+    .modItem {
+        background-color: rgba(230, 230, 255, 0.45);
+        aspect-ratio: 1 / 1; 
+        display: flex;
+        box-shadow: 0 5px 2px rgba(0, 0, 0, 0.2);
+        font-family: 'Minecraft Regular';
+        padding: 0.5em;
+        box-sizing: border-box;
+        overflow: hidden;
+        color: rgba(0, 0, 0, 0.9);
+        transition: 0.15s;
+    }
+    .modItem:hover {
+        cursor: pointer;
+        background-color: rgba(230, 230, 255, 0.5);
+        transform: scale(1.025);
+    }
+    .modContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .modHeader {
+        font-size: 1em;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 0.3em;
+        background-color: rgba(255, 255, 255, 0.4);
+        padding-left: 3px;
+        padding-bottom: 1px;
+    }
+    .modDescription {
+        font-size: 0.8em;
+        text-indent: 1em;
+    }
+    .modFooter {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14pt;
+    }
+    .modAuthor {
+        font-size: 0.7em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 60%;
+    }
+    .modIcon {
+        width: 2.5em;
+        height: 2.5em;
+        flex-shrink: 0;
+        box-shadow: 0 2px 5px black;
+        border: 2px solid white;
+        filter: brightness(1.1);
+    }
+    @media (max-width: 513px) {
+        .modDescription {
+            font-size: 1em;
+        }
+    }
+    @media (max-width: 406px) {
+        .modDescription {
+            font-size: 0.8em;
+        }
+    }
+    @media (max-width: 347px) {
+        .modDescription {
+            font-size: 1.4em;
+        }
+        .modHeader {
+            font-size: 1.3em;
+        }
+        .modAuthor {
+            font-size: 1.3em;
+        }
+    }
+    .modsContainer {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        box-sizing: border-box;
+        flex-wrap: wrap; 
+        align-items: flex-start;
+    }
+    .modsSidebar {
+        width: 12em;
+        background-color: rgba(190, 166, 146, 0.7);
+        padding: 1em;
+        box-sizing: border-box;
+        font-family: 'Minecraft Regular';
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+        flex-shrink: 0; 
+        margin-top: 10px;
+        height: auto;
+    }
+    .modsBody {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1em;
+        flex: 1; 
+        box-sizing: border-box;
+        padding: 1em;
+    }
+    @media (max-width: 768px) {
+        .modsContainer {
+            flex-direction: column; 
+        }
+        .modsSidebar {
+            width: 100%; 
+        }
+        .modsBody {
+            width: 100%;
+        }
+}
+  </style>
+</head>
+<body>
+      <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 3.5em; display: flex; align-items: center;" class="header">
+        <a href="/index.html" style="text-indent: 1rem;">
+            <span style="color: white; font-size: 20pt; filter: drop-shadow(0 3px 3px black); margin-left: 45px;" class="logo">
+                <img src="/img/New_Nintendo_3DS_Edition.webp" style="width: 180px; vertical-align: middle; position: relative; bottom: 3px; image-rendering: auto;">
+                <span style="position: absolute; display: inline-block; color: yellow; transform-origin: left; transform: translateX(-100px) translateY(25px) scale(0.65) rotate(-15deg); animation: scaleText 2s ease-in-out infinite;">
+                    Community
+                </span>
+            </span>
+        </a>
+    
+        <div id="vines" class="vines">
+        </div>
+
+        <div class="vines" id="leftVines">
+          <img src="/img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 0;">
+          <img src="/img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 32px;">
+        </div>
+        <!--wyndchyme was here. These left vines will only appear on smaller video widths.-->
+    </div>
+    
+
+    <div class="dropDownContainer closed">
+        <div class="dropDown">
+            <div style="margin-top: 8px; margin-left: 15px; line-height: 2; font-size: 16pt; filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.3)); height: 100%;">
+                <span class="dropDownItems" onclick="window.location.href='/index.html';">
+                    <img src="/img/gui/home.png" alt="Home">Home
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png" alt="Expand">
+                </span>                
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='/unistore/index.html';">
+                    <img src="/img/gui/unistore.png" style="position: relative; bottom: 1px;">Unistore
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png">
+                </span>
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='/mods/index.html';">
+                    <img src="/img/gui/mods.png" style="position: relative; bottom: 1px;">Mods
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png">
+                </span>
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
+                    <img src="/img/gui/tools.png">Tools
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png">
+                </span>
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
+                    <img src="/img/gui/tutorials.png" style="position: relative; right: 1px;">Tutorials
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png">
+                </span>
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <span class="dropDownItems" onclick="window.location.href='404.html';">
+                    <img src="/img/gui/faqs.png" style="position: relative; bottom: 1px;">FAQs
+                    <img src="/img/gui/expfull.png" class="expImage" data-full="/img/gui/expfull.png">
+                </span>
+                <img src="/img/gui/exp.png" style="position: absolute;">
+                <div class="dropDownLinks">
+                  <img src="/img/links/github.png" style="position: absolute; right: 12px; bottom: 196px; width: 24px;" onclick="window.location.href='https://github.com/Minecraft-3DS-Community';">
+                  <img src="/img/links/speedrun.png" style="position: absolute; right: 10px; bottom: 160px; width: 28px;" onclick="window.location.href='https://www.speedrun.com/mc3ds';">
+                  <img src="/img/links/twitter.png" style="position: absolute; right: 12px; bottom: 130px; width: 23px;" onclick="window.location.href='https://x.com/minecraft3ds_';">
+                  <img src="/img/links/reddit.png" style="position: absolute; right: 13px; bottom: 93px; width: 23px;" onclick="window.location.href='https://www.reddit.com/r/Minecraft3DS/';">
+                  <img src="/img/links/discord.png" style="position: absolute; right: 10px; bottom: 55px; width: 30px;" onclick="window.location.href='https://discord.com/invite/PcfekvmjSw';">
+                  <img src="/img/links/dev.png" style="position: absolute; right: 12px; bottom: 26px; width: 25px;" onclick="window.location.href='/attributions/index.html';">
+                </div>
+            </div>
+        </div>
+        <div class="dropDownButton" id="dropDownToggle">
+            <img src="/img/gui/arrow.png" style="width: 32px;" id="dropDownArrow">
+        </div>
+    </div>
+
+    <div style="width: 100%; height: 6.5em; background: linear-gradient(rgba(104, 40, 40, 0.4), rgba(203, 119, 119, 0.1)), url(/img/bg/chiseled_quartz_block_top.png); background-size: 32px; image-rendering: pixelated;"></div>
+
+    <div class="modsContainer">
+
+        <div class="modsSidebar">
+            <h3>Version</h3>
+            <label>
+                <input type="checkbox" class="modFilter" data-filter="version" value="1.9.19">
+                1.9.19
+            </label>
+            <br>
+            <br>
+            <label>
+                <input type="checkbox" class="modFilter" data-filter="version" value="1.0.0">
+                1.0.0
+            </label>
+            <h3>Type</h3>
+            <label>
+                <input type="checkbox" class="modFilter" data-filter="type" value="entity">
+                Entity Edits
+            </label>
+            <br>
+            <br>
+            <label>
+                <input type="checkbox" class="modFilter" data-filter="type" value="patch">
+                Patches
+            </label>
+            <br>
+            <br>
+            <label>
+                <input type="checkbox" class="modFilter" data-filter="type" value="cheat">
+                Cheats
+            </label>
+            <br>
+            <br>
+            <label>
+                <input type="checkbox" class="modFilter" data-filter="type" value="resourcepack">
+                Resource Packs
+            </label>
+            <br>
+            <br>
+            <label>
+                <input type="checkbox" class="modFilter" data-filter="type" value="skin">
+                Skins
+            </label>
+            <br>
+            <br>
+            <label>
+                <input type="checkbox" class="modFilter" data-filter="type" value="map">
+                Maps
+            </label>
+            <br>
+            <br>
+            <label>
+                <input type="checkbox" class="modFilter" data-filter="type" value="shader">
+                Shaders
+            </label>
+            <br>
+            <br>
+            <label>
+                <input type="checkbox" class="modFilter" data-filter="type" value="other">
+                Other
+            </label>
+            <br>
+            <br>
+        </div>
+        
+        <div class="modsBody">
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                    <div class="modHeader">The Creaking</div>
+                    <div class="modDescription">A port of the Creaking mob to <i>Minecraft: New Nintendo 3DS Edition.</i></div>
+                    <div class="modFooter">
+                        <div class="modAuthor">by Cracko298</div>
+                        <img class="modIcon" src="/mods/icons/creaking.png">
+                    </div>
+                </div>
+            </div>
+
+        
+        
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/MC3DS-IronBrute';">
+                <div class="modContent">
+                <div class="modHeader">IronBrutes</div>
+                <div class="modDescription">Adds Iron Brutes, larger and more advanced Iron Golem variants.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/ironbrutes.png">
+                </div>
+                </div>
+            </div> 
+
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Sheeptastic</div>
+                <div class="modDescription">Adds tameable, rideable, and generally more useful sheep.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div> 
+
+            <div class="modItem" data-version="1.9.19" data-type="patch" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Stronghold Fix</div>
+                <div class="modDescription">Fixes bugged maps appearing in stronghold chests.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div> 
+
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Better Creepers</div>
+                <div class="modDescription">Adds friendly, tameable Creepers as well as baby Creepers.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+            
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">The Warden</div>
+                <div class="modDescription">Implements a basic version of the Warden mob.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+            
+            <div class="modItem" data-version="1.0.0" data-type="patch" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Mipmapping Patch</div>
+                <div class="modDescription">Removes mipmapping, boosting performance. (1.0.0 ONLY)</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by LinuxWizard</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+            
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Nuclear Creepers</div>
+                <div class="modDescription">Adds massive, fiery explosions to Creepers.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+            
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">BatBombs</div>
+                <div class="modDescription">Turns bats into hostile mobs that act as homing missiles.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">The Stalker</div>
+                <div class="modDescription">A horror mod that adds an entity that stalks the player.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="skin" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Blocky</div>
+                <div class="modDescription">Adds the Blocky skin. Replaces the default Steve skin.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Blocky</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Giant Baby Zombies</div>
+                <div class="modDescription">Makes baby zombies eight times the size of regular zombies.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="patch" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Cracko's Game Patches</div>
+                <div class="modDescription">Several game patches to boost performance on 1.9.19.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">TNT Mimics</div>
+                <div class="modDescription">Adds a new hostile mob that appears like a block of TNT.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="patch" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Mob Cap Remover</div>
+                <div class="modDescription">Removes the mob spawning limit.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="other" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Mob Tower</div>
+                <div class="modDescription">Adds a new, challenging structure with treasures galore.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="other" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Command Block Temple</div>
+                <div class="modDescription">Adds a new, reality-warping structure.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="patch,other" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Cracko's Experiments</div>
+                <div class="modDescription">Experimental mods such as X-rays and skybox removal.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="other" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">MC3DS Television</div>
+                <div class="modDescription">A proof-of-concept that adds a four-second zombie movie.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Attract Villagers</div>
+                <div class="modDescription">Makes villagers follow emeralds. Useful for moving them.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Pizzaleader</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Husks Drop Sand</div>
+                <div class="modDescription">Makes husks drop one to four blocks of sand on death.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Pizzaleader</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Sink, Don't Swim!</div>
+                <div class="modDescription">Renders undead mobs unable to swim.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Nikki (Swapdoodle)</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="entity,patch,resourcepack,skin,other" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Modernization MegaPack</div>
+                <div class="modDescription">A massive QoL modpack designed to modernize the game.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by wyndchyme</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="resourcepack" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Adventure Time Mash-Up</div>
+                <div class="modDescription">A port of the Adventure Time Mash-Up Pack.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by susbaconhairman</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="resourcepack" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Technoblade's Crown</div>
+                <div class="modDescription">Gives all pigs Technoblade's crown. Rest in peace.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="resourcepack" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Ender Dragon Elytra</div>
+                <div class="modDescription">Changes the elytra texture to look like the Ender Dragon's wings.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Babylion122</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="shader" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">ENDERMANYK's Shaders</div>
+                <div class="modDescription">Shaders that improve both the game's looks and performance.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by ENDERMANYK</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="resourcepack" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Dark GUI</div>
+                <div class="modDescription">Changes the GUI textures to be darker and sleeker.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by susbaconhairman</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="resourcepack" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">kharrii2 Grass</div>
+                <div class="modDescription">Puts kharrii2's face on all grass block side textures.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by susbaconhairman</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="resourcepack" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Moon End</div>
+                <div class="modDescription">Changes various End textures to look like the Moon.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Pizzaleader</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="resourcepack" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Bow Charge Indicator</div>
+                <div class="modDescription">Changes the charge textures of bows to better show their stages.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Pizzaleader</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="resourcepack,shader" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Halloween Mash-Up</div>
+                <div class="modDescription">A port of the Halloween Mash-Up Pack.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Nawrek</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="skin" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Technoblade Skin</div>
+                <div class="modDescription">The iconic skin of one of the greatest Minecraft players. Rest in peace.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="skin" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">New Default Skins</div>
+                <div class="modDescription">Ports the new default Minecraft Java and Bedrock skins.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by susbaconhairman</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="skin" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">2B2T Legends</div>
+                <div class="modDescription">Includes the iconic skins of various 2B2T players.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by susbaconhairman</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="skin" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">New Base Skins</div>
+                <div class="modDescription">Ports the newest versions of the Steve and Alex skins.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="skin" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Legacy Console Default Skins</div>
+                <div class="modDescription">Ports the classic Legacy Console default skins.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by TheRustico36</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="skin" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Breaking Bad Skins</div>
+                <div class="modDescription">Six iconic skins from Breaking Bad and Better Call Saul.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Skyblock</div>
+                <div class="modDescription">The classic Skyblock experience.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">PokeTube City</div>
+                <div class="modDescription">The largest city world ever released for <i>Minecraft: New Nintendo 3DS Edition.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by PokeTube</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Minecraft 3DS Modernization</div>
+                <div class="modDescription">A map that includes small samples of newer Minecraft.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by GenSpace</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">LoCity</div>
+                <div class="modDescription">A rustic woodland city map.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by oliverimcDISC</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">PokeTube City: Past</div>
+                <div class="modDescription">The iconic PokeTube city as it appeared 150 years ago.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by PokeTube</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Randoms</div>
+                <div class="modDescription">A nostalgic adventure map, as seen on stampylonghead.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Wewelsburg</div>
+                <div class="modDescription">A massive world inspired by Wewelsburg Castle in Germany.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by ThorMode9</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">PanGames</div>
+                <div class="modDescription">Games and attractions made to play with friends or alone.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by PanguinBoi</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Fun Walk</div>
+                <div class="modDescription">100 levels to play as well as various minigames.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by PokeTube</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">GenSpace's Skyblock</div>
+                <div class="modDescription">Skyblock with a twist, including 16 unique islands!</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by GenSpace</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Lapiz's Funland</div>
+                <div class="modDescription">A 20-building theme park, with six minigames to choose from!</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Babylion122</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">3DSpleef</div>
+                <div class="modDescription">The classic multiplayer PVP game.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">World in a Jar 3DS</div>
+                <div class="modDescription">Basic survival, but you are trapped inside a jar in the sky.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by ArcModzzz</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Find the Button</div>
+                <div class="modDescription">A classic Find the Button map with four levels.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by ArcModzzz</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">LavaCity PVP</div>
+                <div class="modDescription">A small PVP map taking place in a lava-flooded building.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Virtual Overtime</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">FNAF Hide and Seek</div>
+                <div class="modDescription">A hide and seek map based on <i>Five Nights at Freddy's.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Virtual Overtime</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">SkyDen</div>
+                <div class="modDescription">Stampy and Scar's nostalgic SkyBlock world.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vicrtl345</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">The Dropper: 3DS Remaster</div>
+                <div class="modDescription">The classic Dropper map, optimized for the Nintendo 3DS.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by GenSpace, Vance, CZX, Watermelon, Ruff64</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Stampy's Lovely World</div>
+                <div class="modDescription">Stampy's iconic Let's Play world.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Babylion122</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">DanTDM's Lab</div>
+                <div class="modDescription">DanTDM's iconic laboratory, recreated for the Nintendo 3DS.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by CleetusMcfarln</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Building Time</div>
+                <div class="modDescription">The classic Stampy series, recreated for the Nintendo 3DS.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">DualFlow</div>
+                <div class="modDescription"><i>No description provided.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by UnknownLoser</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Mega Dropper</div>
+                <div class="modDescription"><i>No description provided.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Vance</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">DevWorld v2</div>
+                <div class="modDescription"><i>No description provided.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Halloween Map</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by CryptedData</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Debug Mode 3D (Fork)</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by kakuremino</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Debug Mode 3D</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Watermelon</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Experience Minecraft</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by kakuremino</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Superflat Survival</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by ThorMode9</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">3DSMP</div>
+                <div class="modDescription">An archive of the 3DSMP from the Minecraft 3DS Community.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Minecraft 3DS Community</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Super Mario Bros. 1-1</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by kakuremino</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Farlandia</div>
+                <div class="modDescription">Advanced farlands generation using the FWO exploit.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Amplified World Generation</div>
+                <div class="modDescription">Advanced amplified world generation using the FWO exploit.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map,other" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Festive World Override (FWO)</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Cracko298</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">FNAF 1 Map</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by CryptedData</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">FNAF 2 Map</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by CryptedData</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Kreideprinz's City Map</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Kreideprinz</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">SD Card Dropper Map</div>
+                <div class="modDescription">The Dropper map playable directly from the microSD card.</div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Toaster</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">The Dropper: Watermelon's Submission</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Watermelon</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Castle of Shadowmere</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by MidnightMystic</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="map" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Blind: Mazes</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Watermelon</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+            <div class="modItem" data-version="1.9.19" data-type="resourcepack,other" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
+                <div class="modContent">
+                <div class="modHeader">Blue 3DX's Modpack</div>
+                <div class="modDescription"><i>See UniStore for description.</i></div>
+                <div class="modFooter">
+                    <div class="modAuthor">by Blue 3DX</div>
+                    <img class="modIcon" src="/mods/icons/creaking.png">
+                </div>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+    <script src="/scripts/main/dropdown.js"></script>
+    <script src="/scripts/main/nodetails.js"></script>
+    <script src="/scripts/main/vines.js"></script>
+    <script>
+        // Select all checkboxes
+        const filters = document.querySelectorAll('.modFilter');
+      
+        // Listen for changes to the filters
+        filters.forEach(filter => {
+          filter.addEventListener('change', filterMods);
+        });
+      
+        function filterMods() {
+          // Get all mod items
+          const mods = document.querySelectorAll('.modItem');
+          
+          // Get the checked filter values
+          const activeFilters = Array.from(filters)
+            .filter(filter => filter.checked)
+            .map(filter => ({ filter: filter.dataset.filter, value: filter.value }));
+      
+          mods.forEach(mod => {
+            let showMod = true;
+      
+            // Loop through all the active filters
+            activeFilters.forEach(activeFilter => {
+              const modAttr = mod.dataset[activeFilter.filter]; // e.g. "entity,enemy"
+      
+              // If the attribute exists, split it by comma into an array
+              const modValues = modAttr ? modAttr.split(',') : [];
+      
+              // Check if the mod includes the active filter value
+              if (!modValues.includes(activeFilter.value)) {
+                showMod = false;
+              }
+            });
+      
+            // Show or hide the mod based on the filter matching
+            mod.style.display = showMod ? '' : 'none';
+          });
+        }
+      </script>
+      
+            <script>
+                window.addEventListener('DOMContentLoaded', () => {
+    // Get all the mod items
+    const modItems = document.querySelectorAll('.modItem');
+    
+    // Convert NodeList to array for sorting
+    const modItemsArray = Array.from(modItems);
+
+    // Sort the mod items based on modHeader, ignoring 'The'
+    modItemsArray.sort((a, b) => {
+        const headerA = a.querySelector('.modHeader').textContent.replace(/^The\s+/i, '');
+        const headerB = b.querySelector('.modHeader').textContent.replace(/^The\s+/i, '');
+        
+        return headerA.localeCompare(headerB);
+    });
+
+    // Append the sorted mod items back into the container
+    const container = modItems[0].parentElement;
+    modItemsArray.forEach(modItem => container.appendChild(modItem));
+});
+
+            </script>
+            
+            
+            
+            
+            
+        
+        
+    
+  </body>
+  </html>
