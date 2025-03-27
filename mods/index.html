@@ -142,12 +142,19 @@
             flex-direction: column; 
         }
         .modsSidebar {
-            width: 100%; 
+            width: 100%;
+            border-left: none;
+            border-right: none; 
         }
         .modsBody {
             width: 100%;
         }
-    }   
+    } 
+    @media (min-width: 768px) {
+        .modsSidebar {
+            border-left: none;
+        }
+    }     
     .sidebarHeader {
         font-size: 15pt;
         width: 100%;
