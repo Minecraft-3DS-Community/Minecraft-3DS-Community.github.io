@@ -191,7 +191,9 @@
         height: 24px; 
         image-rendering: pixelated;
     }
- 
+    #modsShown {
+        margin-left: 15px !important;
+    }
   </style>
 </head>
 <body>
@@ -266,11 +268,12 @@
 
     <div style="width: 100%; height: 6.5em; background: linear-gradient(rgba(104, 40, 40, 0.4), rgba(203, 119, 119, 0.1)), url(/img/bg/chiseled_quartz_block_top.png); background-size: 32px; image-rendering: pixelated;">
 
+        </div>
         <div style="position: relative;" id="desktopSearchContainer">
             <input type="text" id="searchInput" placeholder="Search mods..." style="
                 position: absolute;
                 right: 15px;
-                top: calc(4em - 4px);
+                top: -38px;
                 background-color: rgba(0, 0, 0, 0.8);
                 border: 2px solid black;
                 outline: 2px solid white;
@@ -298,7 +301,6 @@
                 <input type="checkbox" class="modFilter" data-filter="version" value="1.9.19">
                 1.9.19
             </label>
-            <br>
             <br>
             <label>
                 <input type="checkbox" class="modFilter" data-filter="version" value="1.0.0">
@@ -348,6 +350,7 @@
                 <img src="/img/gui/oreui/other.png">Other
             </label>
             <br>
+            <div id="modsShown">0 mods shown out of 0</div>
             <div style="position: relative;" id="mobileSearchContainer">
             </div>
         </div>
@@ -1706,38 +1709,18 @@
     <script src="/scripts/main/dropdown.js"></script>
     <script src="/scripts/main/nodetails.js"></script>
     <script src="/scripts/main/vines.js"></script>
-    <script>
-        const filters = document.querySelectorAll('.modFilter');
-      
-        filters.forEach(filter => {
-          filter.addEventListener('change', filterMods);
-        });
-      
-        function filterMods() {
-          const mods = document.querySelectorAll('.modItem');
-          
-          const activeFilters = Array.from(filters)
-            .filter(filter => filter.checked)
-            .map(filter => ({ filter: filter.dataset.filter, value: filter.value }));
-      
-          mods.forEach(mod => {
-            let showMod = true;
-      
-            activeFilters.forEach(activeFilter => {
-              const modAttr = mod.dataset[activeFilter.filter];
-      
-              const modValues = modAttr ? modAttr.split(',') : [];
-      
-              if (!modValues.includes(activeFilter.value)) {
-                showMod = false;
-              }
-            });
-      
-            mod.style.display = showMod ? '' : 'none';
-          });
-        }
-      </script>
-      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+const isWebkitMobile = /AppleWebKit/.test(navigator.userAgent) && /Mobile|iPhone|iPad|Android/.test(navigator.userAgent);
+
+if (isWebkitMobile) {
+document.querySelectorAll('.modIcon').forEach(icon => {
+    icon.classList.add('webkit-mobile-fix');
+});
+}
+});
+
+    </script>
             <script>
                 window.addEventListener('DOMContentLoaded', () => {
     const modItems = document.querySelectorAll('.modItem');
@@ -1757,36 +1740,60 @@
 
             </script>
             <script>
-                document.addEventListener("DOMContentLoaded", function () {
-    const isWebkitMobile = /AppleWebKit/.test(navigator.userAgent) && /Mobile|iPhone|iPad|Android/.test(navigator.userAgent);
-    
-    if (isWebkitMobile) {
-        document.querySelectorAll('.modIcon').forEach(icon => {
-            icon.classList.add('webkit-mobile-fix');
-        });
-    }
-});
-
-            </script>
-            <script>
-                document.getElementById('searchInput').addEventListener('input', function () {
-    searchMods(this.value);
-});
-                function searchMods(query) {
-    const mods = document.querySelectorAll('.modItem');
-    const lowerQuery = query.toLowerCase();
-
-    mods.forEach(mod => {
-        const title = mod.querySelector('.modHeader').textContent.toLowerCase();
-        if (title.includes(lowerQuery)) {
-            mod.style.display = 'block';
-        } else {
-            mod.style.display = 'none';
-        }
-    });
-}
-
-            </script>
+                const filters = document.querySelectorAll('.modFilter');
+                const searchInput = document.getElementById('searchInput');
+                const modsShownDisplay = document.getElementById('modsShown');
+                                            
+                filters.forEach(filter => {
+                  filter.addEventListener('change', updateMods);
+                });
+                                            
+                searchInput.addEventListener('input', updateMods);
+                
+                document.addEventListener('DOMContentLoaded', updateMods);
+                                          
+                function updateMods() {
+                  const mods = document.querySelectorAll('.modItem');
+                  const query = searchInput.value.toLowerCase();
+                  const activeFilters = Array.from(filters)
+                    .filter(filter => filter.checked)
+                    .map(filter => ({
+                      filter: filter.dataset.filter, 
+                      value: filter.value
+                    }));
+                                          
+                  let shownCount = 0;
+                                          
+                  mods.forEach(mod => {
+                    let showMod = true;
+                                          
+                    activeFilters.forEach(activeFilter => {
+                      const modAttr = mod.dataset[activeFilter.filter];
+                      const modValues = modAttr ? modAttr.split(',') : [];
+                      if (!modValues.includes(activeFilter.value)) {
+                        showMod = false;
+                      }
+                    });
+                                          
+                    const title = mod.querySelector('.modHeader')?.textContent.toLowerCase() || '';
+                    const matchesSearch = title.includes(query);
+                                          
+                    if (showMod && matchesSearch) {
+                      mod.style.display = '';
+                      shownCount++;
+                    } else {
+                      mod.style.display = 'none';
+                    }
+                  });
+                                          
+                  const modText = shownCount === 1 ? 'item' : 'items';
+                  modsShownDisplay.textContent = `${shownCount} ${modText} shown out of ${mods.length}`;
+                }
+              </script>
+              
+              
+              
+              
             <script>
                 function moveSearchInput() {
     const input = document.getElementById('searchInput');
