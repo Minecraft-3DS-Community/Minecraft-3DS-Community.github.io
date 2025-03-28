@@ -71,23 +71,27 @@
         align-items: center;
         justify-content: space-between;
         font-size: 14pt;
+        gap: 0.5em;
+        min-height: 2.5em; 
     }
     .modAuthor {
         font-size: 0.7em;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 60%;
+        max-width: calc(100% - 3em);
     }
     .modIcon {
         width: 2.5em;
         height: 2.5em;
         flex-shrink: 0;
+        object-fit: contain;
         box-shadow: 0 2px 5px black;
         border: 2px solid white;
         filter: brightness(1.1);
-        object-fit: contain; 
-        align-self: center; 
+    }
+    .webkit-mobile-fix {
+        transform: translateY(-20px);
     }
     @media (max-width: 513px) {
         .modDescription {
@@ -1203,19 +1207,15 @@
     <script src="/scripts/main/nodetails.js"></script>
     <script src="/scripts/main/vines.js"></script>
     <script>
-        // Select all checkboxes
         const filters = document.querySelectorAll('.modFilter');
       
-        // Listen for changes to the filters
         filters.forEach(filter => {
           filter.addEventListener('change', filterMods);
         });
       
         function filterMods() {
-          // Get all mod items
           const mods = document.querySelectorAll('.modItem');
           
-          // Get the checked filter values
           const activeFilters = Array.from(filters)
             .filter(filter => filter.checked)
             .map(filter => ({ filter: filter.dataset.filter, value: filter.value }));
@@ -1223,20 +1223,16 @@
           mods.forEach(mod => {
             let showMod = true;
       
-            // Loop through all the active filters
             activeFilters.forEach(activeFilter => {
-              const modAttr = mod.dataset[activeFilter.filter]; // e.g. "entity,enemy"
+              const modAttr = mod.dataset[activeFilter.filter];
       
-              // If the attribute exists, split it by comma into an array
               const modValues = modAttr ? modAttr.split(',') : [];
       
-              // Check if the mod includes the active filter value
               if (!modValues.includes(activeFilter.value)) {
                 showMod = false;
               }
             });
       
-            // Show or hide the mod based on the filter matching
             mod.style.display = showMod ? '' : 'none';
           });
         }
@@ -1244,13 +1240,10 @@
       
             <script>
                 window.addEventListener('DOMContentLoaded', () => {
-    // Get all the mod items
     const modItems = document.querySelectorAll('.modItem');
     
-    // Convert NodeList to array for sorting
     const modItemsArray = Array.from(modItems);
 
-    // Sort the mod items based on modHeader, ignoring 'The'
     modItemsArray.sort((a, b) => {
         const headerA = a.querySelector('.modHeader').textContent.replace(/^The\s+/i, '');
         const headerB = b.querySelector('.modHeader').textContent.replace(/^The\s+/i, '');
@@ -1258,9 +1251,20 @@
         return headerA.localeCompare(headerB);
     });
 
-    // Append the sorted mod items back into the container
     const container = modItems[0].parentElement;
     modItemsArray.forEach(modItem => container.appendChild(modItem));
+});
+
+            </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+    const isWebkitMobile = /AppleWebKit/.test(navigator.userAgent) && /Mobile|iPhone|iPad|Android/.test(navigator.userAgent);
+    
+    if (isWebkitMobile) {
+        document.querySelectorAll('.modIcon').forEach(icon => {
+            icon.classList.add('webkit-mobile-fix');
+        });
+    }
 });
 
             </script>
