@@ -146,6 +146,7 @@
     @media (max-width: 768px) {
         .modsContainer {
             flex-direction: column; 
+            position: relative;
         }
         .modsSidebar {
             width: 100%;
@@ -154,7 +155,16 @@
         }
         .modsBody {
             width: 100%;
+            position: relative;
         }
+        #searchInput {
+            position: static !important;
+            width: calc(100% - 30px);
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+    }
     } 
     @media (min-width: 768px) {
         .modsSidebar {
@@ -254,7 +264,30 @@
         </div>
     </div>
 
-    <div style="width: 100%; height: 6.5em; background: linear-gradient(rgba(104, 40, 40, 0.4), rgba(203, 119, 119, 0.1)), url(/img/bg/chiseled_quartz_block_top.png); background-size: 32px; image-rendering: pixelated;"></div>
+    <div style="width: 100%; height: 6.5em; background: linear-gradient(rgba(104, 40, 40, 0.4), rgba(203, 119, 119, 0.1)), url(/img/bg/chiseled_quartz_block_top.png); background-size: 32px; image-rendering: pixelated;">
+
+        <div style="position: relative;" id="desktopSearchContainer">
+            <input type="text" id="searchInput" placeholder="Search mods..." style="
+                position: absolute;
+                right: 15px;
+                top: calc(4em - 4px);
+                background-color: rgba(0, 0, 0, 0.8);
+                border: 2px solid black;
+                outline: 2px solid white;
+                color: rgba(255, 255, 255, 0.7);
+                font-family: 'Minecraft Regular';
+                font-size: 13pt;
+                padding-left: 35px;
+                padding-bottom: 4px;
+                background-image: url('/img/gui/oreui/search.png');
+                image-rendering: pixelated;
+                background-repeat: no-repeat;
+                background-position: 7px center;
+                background-size: 20px 20px;
+                ">
+    </div>
+
+    </div>
 
     <div class="modsContainer">
 
@@ -315,9 +348,12 @@
                 <img src="/img/gui/oreui/other.png">Other
             </label>
             <br>
+            <div style="position: relative;" id="mobileSearchContainer">
+            </div>
         </div>
         
         <div class="modsBody">
+
             <div class="modItem" data-version="1.9.19" data-type="entity" onclick="window.location.href='https://github.com/Cracko298/mc3ds-creaking';">
                 <div class="modContent">
                     <div class="modHeader">The Creaking</div>
@@ -1266,6 +1302,46 @@
         });
     }
 });
+
+            </script>
+            <script>
+                document.getElementById('searchInput').addEventListener('input', function () {
+    searchMods(this.value);
+});
+                function searchMods(query) {
+    const mods = document.querySelectorAll('.modItem');
+    const lowerQuery = query.toLowerCase();
+
+    mods.forEach(mod => {
+        const title = mod.querySelector('.modHeader').textContent.toLowerCase();
+        if (title.includes(lowerQuery)) {
+            mod.style.display = 'block';
+        } else {
+            mod.style.display = 'none';
+        }
+    });
+}
+
+            </script>
+            <script>
+                function moveSearchInput() {
+    const input = document.getElementById('searchInput');
+    const desktopContainer = document.getElementById('desktopSearchContainer');
+    const mobileContainer = document.getElementById('mobileSearchContainer');
+
+    if (window.innerWidth <= 768) {
+        if (mobileContainer && !mobileContainer.contains(input)) {
+            mobileContainer.appendChild(input);
+        }
+    } else {
+        if (desktopContainer && !desktopContainer.contains(input)) {
+            desktopContainer.appendChild(input);
+        }
+    }
+}
+
+window.addEventListener('DOMContentLoaded', moveSearchInput);
+window.addEventListener('resize', moveSearchInput);
 
             </script>
             
