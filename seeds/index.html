@@ -45,8 +45,17 @@
         text-align: center;
         font-size: 1em;
         border: 2px solid black; 
-        outline: 2px solid #667C96;
+        box-shadow: 
+            -2px 0 0 #667C96, 
+            2px 0 0 #667C96,   
+            0 -2px 0 #667C96;  
         border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+        z-index: 1;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        image-rendering: pixelated;
     }
     .tab-btn:hover {
         background: #5588cc;
@@ -72,8 +81,9 @@
         position: relative;
         left: 2px;
         border: 2px solid black;
-        border-top: none;
+        border-top: 2px solid #667C96;
         margin-bottom: 2px; 
+        bottom: 2px;
     }
 
   </style>
@@ -111,9 +121,15 @@
 
     <div class="tab-container" style="margin-top: 7em;">
         <div class="tab-buttons">
-          <button class="tab-btn active" data-tab="tab1">Terrain</button>
-          <button class="tab-btn" data-tab="tab2">Structures</button>
-          <button class="tab-btn" data-tab="tab3">Other</button>
+          <button class="tab-btn active" data-tab="tab1">
+            <img src="/img/gui/oreui/maps.png">Terrain
+        </button>
+          <button class="tab-btn" data-tab="tab2">
+            <img src="/img/gui/oreui/resourcepacks.png">Structures
+        </button>
+          <button class="tab-btn" data-tab="tab3">
+            <img src="/img/gui/oreui/other.png">Other
+        </button>
         </div>
         <div class="tab-content">
           <div class="tab-panel active" id="tab1">Content for Tab 1</div>
