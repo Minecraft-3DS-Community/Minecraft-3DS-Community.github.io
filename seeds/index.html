@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/style.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
+  <link rel="stylesheet" href="/plugins/flickity/flickity.css" media="screen">
+  <script src="/plugins/flickity/flickity.pkgd.js"></script>
+  <title>Seeds &#8226 Minecraft 3DS Community</title>
+  <style>
+    .header {
+      overflow: visible;
+    }
+    #vines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      pointer-events: none;
+    }
+    body {
+        background: linear-gradient(rgba(2, 17, 25, 0.2), rgba(2, 56, 83, 0.2)), url(/img/bg/chiseled_quartz_block_top.png);
+        background-size: 32px;
+    }
+    .tab-container {
+        color: white;
+        width: 100%;
+    }
+    .tab-buttons {
+        display: flex;
+        width: calc(100% - 4px);
+        gap: 7px;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+    .tab-btn {
+        flex: 1; 
+        background: #336699;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        cursor: pointer;
+        font-family: 'Minecraft Regular';
+        text-align: center;
+        font-size: 1em;
+        border: 2px solid black; 
+        outline: 2px solid #667C96;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    }
+    .tab-btn:hover {
+        background: #5588cc;
+    }
+    .tab-btn.active {
+        background: #225588;
+        border-bottom: none;
+    }
+    .tab-panel {
+        display: none;
+        padding: 1em;
+        height: calc(100vh - 9.5em);
+    }
+    .tab-panel.active {
+        display: block;
+        background: #225588;
+        position: relative;
+        box-shadow: 
+            -2px 0 0 #667C96, 
+            2px 0 0 #667C96,   
+            0 2px 0 #667C96;    
+        width: calc(100% - 4px);
+        position: relative;
+        left: 2px;
+        border: 2px solid black;
+        border-top: none;
+        margin-bottom: 2px; 
+    }
+
+  </style>
+</head>
+<body>
+      <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 3.5em; display: flex; align-items: center;" class="header">
+        <a href="/index.html" style="text-indent: 1rem;">
+            <span style="color: white; font-size: 20pt; filter: drop-shadow(0 3px 3px black); margin-left: 45px;" class="logo">
+                <img src="/img/New_Nintendo_3DS_Edition.webp" style="width: 180px; vertical-align: middle; position: relative; bottom: 3px; image-rendering: auto;">
+                <span style="position: absolute; display: inline-block; color: yellow; transform-origin: left; transform: translateX(-100px) translateY(25px) scale(0.65) rotate(-15deg); animation: scaleText 2s ease-in-out infinite;">
+                    Community
+                </span>
+            </span>
+        </a>
+    
+        <div id="vines" class="vines">
+        </div>
+
+        <div class="vines" id="leftVines">
+          <img src="/img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 0;">
+          <img src="/img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 32px;">
+        </div>
+        <!--wyndchyme was here. These left vines will only appear on smaller video widths.-->
+    </div>
+    
+
+    <div class="dropDownContainer closed">
+      <div class="dropDown">
+          <div id="dropDownContent"></div>
+      </div>
+      <div class="dropDownButton" id="dropDownToggle">
+          <img src="/img/gui/arrow.png" style="width: 32px;" id="dropDownArrow">
+      </div>
+    </div>
+
+    <div class="tab-container" style="margin-top: 7em;">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="tab1">Terrain</button>
+          <button class="tab-btn" data-tab="tab2">Structures</button>
+          <button class="tab-btn" data-tab="tab3">Other</button>
+        </div>
+        <div class="tab-content">
+          <div class="tab-panel active" id="tab1">Content for Tab 1</div>
+          <div class="tab-panel" id="tab2">Content for Tab 2</div>
+          <div class="tab-panel" id="tab3">Content for Tab 3</div>
+        </div>
+      </div>
+      
+
+    <script src="/scripts/main/dropdown.js"></script>
+    <script src="/scripts/main/vines.js"></script>
+    <script src="/scripts/main/header.js"></script>
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(button => {
+          button.addEventListener('click', () => {
+            const tabId = button.dataset.tab;
+      
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+      
+            button.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+          });
+        });
+      </script>
+      
+    
+  </body>
+  </html>
