@@ -272,7 +272,7 @@ body {
 .sidebar {
     flex: 1 1 30%;
     min-width: 200px;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.35)), url(img/bg/dark_oak_planks.png);
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url(img/bg/stone.png);
     background-size: 32px;
     image-rendering: pixelated;
     font-size: 12pt;
@@ -289,7 +289,7 @@ body {
 }
 
 .news h1 {
-    color: rgb(255, 255, 184);
+    color: rgb(224, 243, 255);
     font-weight: normal !important;
 }
 
@@ -304,11 +304,11 @@ body {
 }
 
 .news a {
-    color: aquamarine;
+    color: rgb(184, 229, 255);
 }
 
 .news a:hover {
-    color: rgb(88, 162, 137);
+    color: rgb(112, 183, 225);
 }
   
 @media (max-width: 768px) {

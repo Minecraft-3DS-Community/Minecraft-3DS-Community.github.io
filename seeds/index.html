@@ -63,6 +63,7 @@
     .tab-btn.active {
         background: #225588;
         border-bottom: none;
+        text-decoration: underline;
     }
     .tab-panel {
         display: none;
@@ -85,7 +86,38 @@
         margin-bottom: 2px; 
         bottom: 2px;
     }
-
+    @media (max-width: 420px) {
+      .tab-btn {
+        font-size: 10pt;
+      }
+    }
+    @media (max-width: 370px) {
+      .tab-btn {
+        font-size: 9pt;
+      }
+      .tab-btn img {
+        display: none;
+      }
+    }
+    .grid-container {
+      display: grid;
+      gap: 1em;
+      padding: 1em;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      font-family: 'Minecraft Regular';
+      font-weight: normal;
+    }
+    .grid-item {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 1em;
+      color: white;
+      border: 2px solid black; 
+      outline: 2px solid rgba(255, 255, 255, 0.3);
+      min-height: 100px;
+    }
+    .grid-item:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
   </style>
 </head>
 <body>
@@ -121,20 +153,104 @@
 
     <div class="tab-container" style="margin-top: 7em;">
         <div class="tab-buttons">
-          <button class="tab-btn active" data-tab="tab1">
-            <img src="/img/gui/oreui/maps.png">Terrain
-        </button>
-          <button class="tab-btn" data-tab="tab2">
+          <button class="tab-btn active" data-tab="tab1" style="background: rgb(118, 38, 38);">
             <img src="/img/gui/oreui/resourcepacks.png">Structures
+        </button>
+          <button class="tab-btn" data-tab="tab2" style="background: rgb(29, 86, 55);">
+            <img src="/img/gui/oreui/maps.png">Terrain
         </button>
           <button class="tab-btn" data-tab="tab3">
             <img src="/img/gui/oreui/other.png">Other
         </button>
         </div>
         <div class="tab-content">
-          <div class="tab-panel active" id="tab1">Content for Tab 1</div>
-          <div class="tab-panel" id="tab2">Content for Tab 2</div>
-          <div class="tab-panel" id="tab3">Content for Tab 3</div>
+          <div class="tab-panel active" id="tab1" style="background: rgb(118, 38, 38)">
+            <div class="grid-container">
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+            </div>            
+          </div>
+
+          <div class="tab-panel" id="tab2" style="background: rgb(29, 86, 55);">
+            <div class="grid-container">
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+            </div>  
+          </div>
+
+          <div class="tab-panel" id="tab3">
+            <div class="grid-container">
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+
+              <div class="grid-item">
+                
+              </div>
+            </div>  
+          </div>
+
         </div>
       </div>
       
