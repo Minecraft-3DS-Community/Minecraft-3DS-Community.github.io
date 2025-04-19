@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const isWebkitMobile = /AppleWebKit/.test(navigator.userAgent) && /Mobile|iPhone|iPad|Android/.test(navigator.userAgent);
+    const isSafari = /AppleWebKit/.test(navigator.userAgent) &&
+                     !/Chrome|CriOS|Chromium/.test(navigator.userAgent);
     
-    if (isWebkitMobile) {
-    document.querySelectorAll('.modFooter').forEach(icon => {
-        icon.classList.add('webkit-mobile-fix');
-    });
+    if (isSafari) {
+        document.querySelectorAll('.modFooter').forEach(icon => {
+            icon.classList.add('webkit-fix');
+        });
+        document.querySelectorAll('.modDescription').forEach(icon => {
+            icon.classList.add('webkit-desc-fix');
+        });
     }
-    });
-    
+        
+});
