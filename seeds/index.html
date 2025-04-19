@@ -35,27 +35,30 @@
         margin-right: 2px;
     }
     .tab-btn {
-        flex: 1; 
-        background: #336699;
-        color: white;
-        border: none;
-        padding: 0.5em 1em;
-        cursor: pointer;
-        font-family: 'Minecraft Regular';
-        text-align: center;
-        font-size: 1em;
-        border: 2px solid black; 
-        box-shadow: 
-            -2px 0 0 #667C96, 
-            2px 0 0 #667C96,   
-            0 -2px 0 #667C96;  
-        border-bottom: 4px solid rgba(0, 0, 0, 0.3);
-        z-index: 1;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        image-rendering: pixelated;
+    flex: 1; 
+    background: #336699;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-family: 'Minecraft Regular';
+    text-align: center;
+    font-size: 1em;
+    border: 2px solid black; 
+    box-shadow: 
+        -2px 0 0 #667C96, 
+        2px 0 0 #667C96,   
+        0 -2px 0 #667C96;  
+    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    image-rendering: pixelated;
+    margin-bottom: 5px;
+    position: relative;
+    top: 5px;
     }
     .tab-btn:hover {
         filter: brightness(1.2);
@@ -65,15 +68,18 @@
     }
     /* wyndchyme was here. Yes, I know this is hilariously dumb. */
     .tab-btn.active {
-        background: #225588;
-        border-bottom: none;
-        text-decoration: underline;
+    background: #225588;
+    border-bottom: 2px solid transparent;
+    text-decoration: underline;
+    margin-bottom: 0px;
+    transform: translateY(-5px);
     }
     .tab-btn.active:hover img {
       filter: brightness(1);
     }
     .tab-btn.active:hover {
       filter: none;
+      cursor: default;
     }
     .tab-panel {
         display: none;
