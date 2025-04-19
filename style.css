@@ -252,14 +252,21 @@ body {
     }
 }
 
+@media (min-width: 1200px) {
+    .didYouKnowBody {
+        font-size: 18pt !important;
+    }
+}
+
 .didYouKnowBody {
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 30px;
     padding-top: 5px;
-    text-indent: 1em;
+    text-indent: 0;
     flex: 1;
     font-size: 15pt;
+    margin-top: 5px;
 }
 
 .featuredVideo {
@@ -362,7 +369,7 @@ body {
         font-size: 14pt !important;
     }
     .didYouKnowBody {
-        font-size: 13pt !important;
+        font-size: 17pt !important;
     }
 }
 
