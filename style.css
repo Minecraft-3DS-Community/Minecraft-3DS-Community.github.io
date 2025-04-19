@@ -219,7 +219,7 @@ body {
 
 .didYouKnow {
     width: 30%;
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(img/bg/netherrack.png);
+    background-color: rgba(181, 207, 255, 0.35);
     background-size: 32px;
     position: absolute;
     right: 0;
@@ -233,14 +233,38 @@ body {
 }
 
 .didYouKnowHeader {
-    color: rgb(255, 214, 202);
-    padding-top: 3px;
-    padding-bottom: 3px;
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url(img/bg/nether_bricks.png);
+    text-align: center;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.35);
     background-size: 32px;
     image-rendering: pixelated;
     font-size: 16pt;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.75);
+    text-indent: 0 !important;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.didYouKnowHeader img {
+    height: 24px; 
+    width: auto; 
+    flex-shrink: 0; 
+    flex-grow: 0;  
+    image-rendering: pixelated;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+}
+
+.featuredHeader {
+    display: flex;
+    justify-content: left;
+    margin-left: 10px;
+    text-indent: 0;
+    gap: 10px;
 }
 
 @media (max-width: 1000px) {
@@ -255,6 +279,12 @@ body {
 @media (min-width: 1200px) {
     .didYouKnowBody {
         font-size: 18pt !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .didYouKnowHeader img {
+        display: none;
     }
 }
 
@@ -367,6 +397,12 @@ body {
     }
     .didYouKnowHeader {
         font-size: 14pt !important;
+    }
+    .didYouKnowHeader img {
+        display: block;
+        position: absolute;
+        top: 5px;
+        left: 7px;
     }
     .didYouKnowBody {
         font-size: 17pt !important;
