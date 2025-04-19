@@ -361,7 +361,7 @@ body {
     .newsHeader {
         position: relative;
         top: 0px;
-        padding-top: 0px !important;
+        padding-top: 3px !important;
     }
     .main-text {
         margin-left: 0;
@@ -429,15 +429,27 @@ body {
     position: relative;
     z-index: 6;
     bottom: 4px;
-    padding-bottom: 3px;
+    padding-bottom: 5px;
     padding-top: 10px;
     font-size: 18pt;
     font-family: 'Minecraft Regular';
-    color: white;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url(img/bg/stone_bricks.png);
+    color: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.4)), url(img/bg/stone_bricks.png);
     background-size: 32px;
     padding-left: 10px;
     filter: drop-shadow(0 2px 2px black);
+    display: flex;
+    gap: 8px;
+}
+
+.newsHeader img {
+    height: 24px; 
+    width: auto; 
+    flex-shrink: 0; 
+    flex-grow: 0;  
+    image-rendering: pixelated;
+    position: relative;
+    top: 3px;
 }
 
 gallerysubtitle {
