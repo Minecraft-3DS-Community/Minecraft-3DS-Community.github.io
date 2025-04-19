@@ -462,6 +462,10 @@ gallerysubtitle a {
     text-decoration: none;
 }
 
+gallerysubtitle a:hover {
+    text-decoration: underline;
+}
+
 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
