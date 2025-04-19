@@ -373,12 +373,18 @@ body {
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 650px) {
     .didYouKnow {
-        display: none;
+        width: 100% !important;
+        position: relative;
+        height: fit-content;
+        margin-top: -10px !important;
+        margin-bottom: 10px;
     }
     .featuredVideo {
         width: 100% !important;
+        max-height: 300px;
+        height: 75vw;
     }
 }
 
