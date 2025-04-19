@@ -133,11 +133,50 @@
     .grid-item:hover {
       background: rgba(255, 255, 255, 0.4);
     }
+    .grid-item img {
+      width: 100%;
+      height: 60%;
+      object-fit: cover;
+      border: 2px solid black; 
+      outline: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    .seedNo {
+      font-weight: normal;
+      font-size: 18pt
+    }
+    .seedDesc {
+      font-size: 14pt;
+    }
+    @media (max-width: 588px) {
+      .seedNo {
+        font-size: 24pt;
+      }
+      .seedDesc {
+        font-size: 20pt;
+      }
+      .seedSubmitter {
+        position: relative;
+        top: 5px;
+        font-size: 14pt;
+      }
+    }
+    @media (max-width: 414px) {
+      .seedNo {
+        font-size: 18pt;
+      }
+      .seedDesc {
+        font-size: 15pt;
+      }
+      .seedSubmitter {
+        font-size: 12pt;
+        top: 0px;
+      }
+    }
   </style>
 </head>
 <body>
       <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 3.5em; display: flex; align-items: center; z-index: 3000;" class="header">
-        <a href="/index.html" style="text-indent: 1rem;">
+        <a href="/" style="text-indent: 1rem;">
             <span style="color: white; font-size: 20pt; filter: drop-shadow(0 3px 3px black); margin-left: 45px;" class="logo">
                 <img src="/img/New_Nintendo_3DS_Edition.webp" style="width: 180px; vertical-align: middle; position: relative; bottom: 3px; image-rendering: auto;">
                 <span style="position: absolute; display: inline-block; color: yellow; transform-origin: left; transform: translateX(-100px) translateY(25px) scale(0.65) rotate(-15deg); animation: scaleText 2s ease-in-out infinite;">
@@ -194,29 +233,6 @@
           0 2px 0 #966666;">
             <div class="grid-container">
 
-              <div class="grid-item">
-                
-              </div>
-
-              <div class="grid-item">
-                
-              </div>
-
-              <div class="grid-item">
-                
-              </div>
-
-              <div class="grid-item">
-                
-              </div>
-
-              <div class="grid-item">
-                
-              </div>
-
-              <div class="grid-item">
-                
-              </div>
             </div>            
           </div>
 
@@ -228,57 +244,74 @@
             <div class="grid-container">
 
               <div class="grid-item">
-                
+                <img src="/seeds/img/image5.png">
+                <span class="seedNo">1853825569</span><br>
+                <span class="seedDesc">Jungle</span><br>
+                <span class="seedSubmitter"><i>Submitted by</i> Vance</span>
               </div>
 
               <div class="grid-item">
-                
+                <img src="/seeds/img/image6.png">
+                <span class="seedNo">1578516642</span><br>
+                <span class="seedDesc">Mesa</span><br>
+                <span class="seedSubmitter"><i>Submitted by</i> Vance</span>
               </div>
 
               <div class="grid-item">
-                
+                <img src="/seeds/img/image9.png">
+                <span class="seedNo">12808</span><br>
+                <span class="seedDesc">Ice Spikes</span><br>
+                <span class="seedSubmitter"><i>Submitted by</i> Vance</span>
               </div>
 
               <div class="grid-item">
-                
+                <img src="/seeds/img/image4.png">
+                <span class="seedNo">1406069825</span><br>
+                <span class="seedDesc">Mesa</span><br>
+                <span class="seedSubmitter"><i>Submitted by</i> Vance</span>
               </div>
 
               <div class="grid-item">
-                
+                <img src="/seeds/img/image2.png">
+                <span class="seedNo">1410403532</span><br>
+                <span class="seedDesc">Ice Spikes</span><br>
+                <span class="seedSubmitter"><i>Submitted by</i> Vance</span>
               </div>
 
               <div class="grid-item">
-                
+                <img src="/seeds/img/image1.png">
+                <span class="seedNo">992826707</span><br>
+                <span class="seedDesc">Mushroom Fields/Island</span><br>
+                <span class="seedSubmitter"><i>Submitted by</i> CZX</span>
               </div>
+
+              <div class="grid-item">
+                <img src="/seeds/img/image7.png">
+                <span class="seedNo">611821</span><br>
+                <span class="seedDesc">Jungle</span><br>
+                <span class="seedSubmitter"><i>Submitted by</i> Genspace</span>
+              </div>
+
+              <div class="grid-item">
+                <img src="/seeds/img/image3.png">
+                <span class="seedNo">1085382305</span><br>
+                <span class="seedDesc">Islands</span><br>
+                <span class="seedSubmitter"><i>Submitted by</i> puplays</span>
+              </div>
+
+              <div class="grid-item">
+                <img src="/seeds/img/image8.png">
+                <span class="seedNo">878996665</span><br>
+                <span class="seedDesc">Valley, Woodland Mansion</span><br>
+                <span class="seedSubmitter"><i>Submitted by</i> Cracko298</span>
+              </div>
+
             </div>  
           </div>
 
           <div class="tab-panel" id="tab3">
             <div class="grid-container">
 
-              <div class="grid-item">
-                
-              </div>
-
-              <div class="grid-item">
-                
-              </div>
-
-              <div class="grid-item">
-                
-              </div>
-
-              <div class="grid-item">
-                
-              </div>
-
-              <div class="grid-item">
-                
-              </div>
-
-              <div class="grid-item">
-                
-              </div>
             </div>  
           </div>
 
@@ -333,6 +366,21 @@
       
         window.addEventListener('load', stretchTabPanel);
         window.addEventListener('resize', stretchTabPanel);
+      </script>
+      <script>
+const containers = document.querySelectorAll('.grid-container');
+
+containers.forEach(container => {
+  const items = Array.from(container.querySelectorAll('.grid-item'));
+
+  items.sort((a, b) => {
+    const descA = a.querySelector('.seedDesc').textContent.toLowerCase();
+    const descB = b.querySelector('.seedDesc').textContent.toLowerCase();
+    return descA.localeCompare(descB);
+  });
+
+  items.forEach(item => container.appendChild(item));
+});
       </script>
       
       
