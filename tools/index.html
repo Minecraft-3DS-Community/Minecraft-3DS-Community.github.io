@@ -98,6 +98,11 @@
     .toolsBody a:hover {
       text-decoration: underline;
     }
+    .modMakerLogo:hover {
+      cursor: pointer;
+      transform: scale(1.02);
+      filter: brightness(1.1);
+    }
   </style>
 </head>
 <body>
@@ -146,7 +151,7 @@
             margin-top: 10px;
             ">
           <i style="position: relative; top: 40px;">Try the</i><br>
-          <span class="modMakerLogo" style="
+          <span class="modMakerLogo" onclick="window.location.href='/tools/onlinemodmaker/';" style="
               font-size: 25pt;
               background-color: rgb(190, 72, 4);
               padding: 3px 20px 3px 10px;
