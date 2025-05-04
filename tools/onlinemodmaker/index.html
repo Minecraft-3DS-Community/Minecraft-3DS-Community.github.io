@@ -15,8 +15,8 @@
     #templateContainer {
       position: absolute;
       top: 12em;
+      width: 94vw !important;
       margin-left: 3vw;
-      margin-right: 3vw;
     }
     .modMakerHeader {
       width: 100%;
@@ -27,6 +27,7 @@
       font-size: 24pt;
       margin-top: 100px;
       background-color: rgba(255, 255, 255, 0.1);
+      text-indent: 0.5em;
     }
   </style>
 </head>
@@ -57,7 +58,8 @@
   </div>
 
   <div class="modMakerHeader">
-    <div style="margin-left: 30px; margin-right: 3vw; position: relative; top: 13px;">
+    <div style="position: relative; top: 13px;">
+      <img src="/img/gui/tools.png" style="image-rendering: pixelated; filter: drop-shadow(0 0 1px black); position: relative; left: 4px; top: 2px;">
       Online Mod Maker<br>
     </div>
   </div>
@@ -68,7 +70,7 @@
     const container = document.getElementById('templateContainer');
     const iframe = document.createElement('iframe');
     iframe.src = '/plugins/template/tools/onlinemodmaker.html';
-    iframe.style.width = 'calc(100% - 6vw)';
+    iframe.style.width = '94vw';
     iframe.style.height = '100vh';
     iframe.style.border = 'none';
     container.appendChild(iframe);
