@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/style.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
+  <link rel="stylesheet" href="/plugins/flickity/flickity.css" media="screen">
+  <script src="/plugins/flickity/flickity.pkgd.js"></script>
+  <title>BLANK &#8226 Minecraft 3DS Community</title>
+  <style>
+  </style>
+</head>
+<body>
+      <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 3.5em; display: flex; align-items: center;" class="header">
+        <a href="/" style="text-indent: 1rem;">
+            <span style="color: white; font-size: 20pt; filter: drop-shadow(0 3px 3px black); margin-left: 45px;" class="logo">
+                <img src="/img/New_Nintendo_3DS_Edition.webp" style="width: 180px; vertical-align: middle; position: relative; bottom: 3px; image-rendering: auto;">
+                <span style="position: absolute; display: inline-block; color: yellow; transform-origin: left; transform: translateX(-100px) translateY(25px) scale(0.65) rotate(-15deg); animation: scaleText 2s ease-in-out infinite;">
+                    Community
+                </span>
+            </span>
+        </a>
+    
+        <div id="vines" class="vines">
+        </div>
+
+        <div class="vines" id="leftVines">
+          <img src="/img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 0;">
+          <img src="/img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 32px;">
+        </div>
+        <!--wyndchyme was here. These left vines will only appear on smaller video widths.-->
+    </div>
+    
+
+    <div class="dropDownContainer closed">
+        <div class="dropDown">
+            <div id="dropDownContent"></div>
+        </div>
+        <div class="dropDownButton" id="dropDownToggle">
+            <img src="/img/gui/arrow.png" style="width: 32px;" id="dropDownArrow">
+        </div>
+      </div>
+
+    <script src="/scripts/main/dropdown.js"></script>
+    <script src="/scripts/main/vines.js"></script>
+    <script src="/scripts/main/header.js"></script>
+    
+  </body>
+  </html>
