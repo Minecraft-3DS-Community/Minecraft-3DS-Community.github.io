@@ -58,19 +58,45 @@
     }
     .toolsBody {
       position: absolute;
-      top: 15em;
-      margin-left: 3vw;
+      top: 13em;
       margin-right: 3vw;
       font-family: 'Minecraft Regular';
-      font-size: 14pt;
+      font-size: 16pt;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
-      width: 100%;
+      width: calc(100% - 6vw);
+      left: 1.5vw;
+      line-height: 1.5;
     }
     .toolsBody ul {
       list-style-type: disc;
       margin: 0;
+      text-overflow: ellipsis;
+      margin-bottom: 20px;
+    }
+    .bulletHeader {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      right: 20px;
+      background-color: rgba(179, 57, 0, 0.5);
+      padding-left: 5px;
+      border: 2px solid rgba(0, 0, 0, 0.7); 
+      outline: 2px solid rgba(179, 57, 0, 0.5);
+      margin-bottom: 10px;
+    }
+    .bulletHeader img {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+    .toolsBody a {
+      color: black;
+      text-decoration: none;
+    }
+    .toolsBody a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -157,28 +183,73 @@
 
       <div class="toolsBody">
         <ul>
-          <li>Item 1A</li>
-          <li>Item 1B</li>
+          <span class="bulletHeader">
+            <img src="/img/gui/oreui/behaviorpacks.png">Main Tools
+          </span>
+          <li><a href="https://github.com/Cracko298/CombinedAudioTool">CombinedAudioTool (CATool)</a></li>
+          <li><a href="https://github.com/STBrian/MC3DS-Texture-Maker">MC3DS Texture Maker</a></li>
+          <li><a href="https://github.com/MC3DS-Save-Research/3DS-Chunker">3DS Chunker</a></li>
+          <li><a href="https://github.com/Cracko298/3DS-Chunker-GUI">3DS Chunker GUI</a></li>
+          <li><a href="https://github.com/STBrian/MC3DS-BJSON-Editor">MC3DS BJSON Editor</a></li>
+          <li><a href="https://github.com/Cracko298/MC3DS-Model-Editor">MC3DS Model Editor</a></li>
+          <li><a href="https://github.com/Cracko298/MC3DS-SplashReplacer/">MC3DS-SplashReplacer</a></li>
+          <li><a href="https://github.com/Cracko298/3DSWorld2FWO/">3DS World2FWO</a></li>
+          <li><a href="https://github.com/Cracko298/MC3DS-WorldManager">MC3DS-WorldManager</a></li>
+          <li><a href="https://github.com/Cracko298/MC3DS-AnimationSuite">MC3DS-AnimationSuite</a></li>
+          <li><a href="https://github.com/Cracko298/obj2mcpe">obj2mcpe</a></li>
+          <li><a href="https://discord.com/invite/jVYWqSN2Yc">Asterium Debugging Plugin</a></li>
         </ul>
         <ul>
-          <li>Item 2A</li>
-          <li>Item 2B</li>
+          <span class="bulletHeader">
+            <img src="/img/gui/oreui/patches.png">Utilities
+          </span>
+          <li><a href="https://github.com/Cracko298/MC3DS-TextureCompare">MC3DS TextureCompare</a></li>
+          <li><a href="https://github.com/Cracko298/MC3DS-FixUIOpacity">MC3DS FixUIOpacity</a></li>
+          <li><a href="https://github.com/Cracko298/MassBlangConverter">Mass Blang Converter</a></li>
+          <li><a href="https://github.com/STBrian/MC3DS-Blang-Editor">MC3DS Blang Editor</a></li>
+          <li><a href="https://github.com/Cracko298/MC-3DS-Flip">MC3DS Flip</a></li>
+          <li><a href="https://github.com/Cracko298/3DST-Converter">3DST Converter</a></li>
+          <li><a href="https://github.com/Cracko298/MC3DS-MAC">MC3DS Material Attribute Converter</a></li>
+          <li><a href="https://github.com/Cracko298/MC3DS-Options-WinEdit">MC3DS OptionsWinEdit</a></li>
+          <li><a href="https://github.com/SpeakerZ-01/mc3ds-model-extractor/">MC3DS Model Extractor</a></li>
+          <li><a href="https://github.com/STBrian/3dstToPng">3DST2PNG</a></li>
+          <li><a href="https://github.com/Cracko298/MC3DS-WorldExpandParser">MC3DS-World Expansion Parser</a></li>
         </ul>
         <ul>
-          <li>Item 3A</li>
-          <li>Item 3B</li>
+          <span class="bulletHeader">
+            <img src="/img/gui/oreui/other.png">Libraries
+          </span>
+          <li><a href="https://github.com/Cracko298/MC3DS-getTextureInfo">MC3DS getTextureInfo</a></li>
+          <li><a href="https://github.com/Cracko298/mc3dslib">mc3dslib</a></li>
+          <li><a href="https://github.com/STBrian/py3dst">py3dst</a></li>
+          <li><a href="https://github.com/STBrian/MC3DS-Blang-Editor/tree/main/modules">pyBlang</a></li>
+          <li><a href="https://github.com/BJTMastermind/MC3dst-Parser">MC3DST Parser</a></li>
+          <li><a href="https://github.com/STBrian/pyBjson">pyBjson</a></li>
         </ul>
         <ul>
-          <li>Item 4A</li>
-          <li>Item 4B</li>
+          <span class="bulletHeader">
+            <img src="/img/gui/oreui/resourcepacks.png">Other
+          </span>
+          <li><a href="/tools/onlinemodmaker/">Online Mod Maker</a></li>
+          <li><a href="/tools/negativeseed/">Negative Seed Calculator</a></li>
+          <li><a href="/tools/blockstomegabytes/">Blocks to Megabytes Calculator</a></li>
         </ul>
       </div>
+
          
       
 
     <script src="/scripts/main/dropdown.js"></script>
     <script src="/scripts/main/vines.js"></script>
     <script src="/scripts/main/header.js"></script>
+    <script>
+      document.querySelectorAll('.toolsBody ul').forEach(ul => {
+  const lis = Array.from(ul.querySelectorAll('li'));
+  lis.sort((a, b) => a.textContent.localeCompare(b.textContent));
+  lis.forEach(li => ul.appendChild(li)); // reinsert in sorted order
+});
+
+    </script>
     
   </body>
   </html>
