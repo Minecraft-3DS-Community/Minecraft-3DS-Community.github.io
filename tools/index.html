@@ -32,6 +32,46 @@
         opacity: 0.3;
         filter: sepia(1);
     }
+    @media (max-width: 555px) {
+      .bigHeader {
+        white-space: wrap;
+      }
+      .imgColumn {
+        display: none !important;
+      }
+      .textHeader {
+        margin-right: 20px;
+        position: relative;
+        bottom: 5px;
+      }
+      .modMakerLogo {
+        white-space: nowrap;
+      }
+    }
+    @media (max-width: 425px) {
+      .modMakerLogo {
+        font-size: 15pt !important;
+      }
+      .modMakerDesc {
+        font-size: 11pt !important;
+      }
+    }
+    .toolsBody {
+      position: absolute;
+      top: 15em;
+      margin-left: 3vw;
+      margin-right: 3vw;
+      font-family: 'Minecraft Regular';
+      font-size: 14pt;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      width: 100%;
+    }
+    .toolsBody ul {
+      list-style-type: disc;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
@@ -68,7 +108,7 @@
       <div class="bigHeader" style="display: flex; align-items: flex-start; gap: 50px;">
         <!-- Left column -->
          <div>
-        <span style="
+        <span class="textHeader" style="
             color: rgb(91, 41, 9);
             font-weight: normal !important;
             font-size: 16pt;
@@ -80,7 +120,7 @@
             margin-top: 10px;
             ">
           <i style="position: relative; top: 40px;">Try the</i><br>
-          <span style="
+          <span class="modMakerLogo" style="
               font-size: 25pt;
               background-color: rgb(190, 72, 4);
               padding: 3px 20px 3px 10px;
@@ -99,7 +139,7 @@
                 filter: drop-shadow(0 0 1px black);">
             Online Mod Maker
           </span>
-          <span style="
+          <span class="modMakerDesc" style="
               font-size: 13pt;
               color: rgb(99, 56, 21);">
             Make JSON edits from the comfort of your own browser!
@@ -114,6 +154,26 @@
           <img src="/tools/img/pizza3.png">
         </div>
       </div>
+
+      <div class="toolsBody">
+        <ul>
+          <li>Item 1A</li>
+          <li>Item 1B</li>
+        </ul>
+        <ul>
+          <li>Item 2A</li>
+          <li>Item 2B</li>
+        </ul>
+        <ul>
+          <li>Item 3A</li>
+          <li>Item 3B</li>
+        </ul>
+        <ul>
+          <li>Item 4A</li>
+          <li>Item 4B</li>
+        </ul>
+      </div>
+         
       
 
     <script src="/scripts/main/dropdown.js"></script>
