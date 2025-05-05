@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_blank">
+    <style>
+      button {
+        padding: 5px;
+        color: rgba(255, 255, 255, 0.7);
+        background-color: rgb(137, 114, 77);
+        border: 2px solid rgb(255, 207, 148); 
+        outline: 2px solid rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 8px;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 45vh;
+        color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(137, 114, 77, 0.3);
+        border: 2px solid rgb(255, 207, 148); 
+        outline: 2px solid rgba(0, 0, 0, 0.5);
+      }
+      .input-container {
+        display: flex;
+        flex-direction: row;
+      }
+      input[type="text"] {
+        width: 30vw;
+        max-width: 200px;
+        height: 25px;
+        font-size: 18px;
+        text-align: center;
+        font-family: 'Minecraft Regular', sans-serif;
+        margin-right: 10px;
+        border: 2px solid rgba(137, 114, 77, 0.5); 
+        outline: 2px solid rgba(0, 0, 0, 0.6);
+        padding: 5px;
+      }
+      button {
+        font-size: 18px;
+        font-family: 'Minecraft Regular', sans-serif;
+      }
+      #result {
+        position: absolute;
+        font-size: 18px;
+        font-family: 'Minecraft Regular', sans-serif;
+        margin-top: 80px;
+      }
+      @font-face {
+        font-family: 'Minecraft Regular';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Minecraft Regular'), url('/plugins/font/1_MinecraftRegular1.woff') format('woff');
+      }
+      .toolDescription {
+        font-family: 'Minecraft Regular';
+        margin-top: 10px;
+        font-size: 14pt;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-container">
+        <input type="text" id="inputNumber">
+        <button onclick="calculate()">Calculate</button>
+      </div>
+      <div id="result" style="color: #EFEFEF"></div>
+    </div>
+
+    <div class="toolDescription">
+        This is an interactive online calculator that uses a method discovered by SprinkzMC. It calculates given negative seeds into positive ones that can be inputted into <i>Minecraft: New Nintendo 3DS Edition's</i> seed selector.
+    </div>
+
+    <script>
+      function calculate() {
+        const inputNumber = document.getElementById("inputNumber").value;
+        const result = 4294967296 - Math.abs(inputNumber);
+        const resultElement = document.getElementById("result");
+        resultElement.innerHTML = result;
+        resultElement.style.color = "#EFEFEF"; // Set text color
+      }
+    </script>
+  </body>
+</html>
