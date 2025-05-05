@@ -501,74 +501,10 @@
     <script src="/scripts/main/dropdown.js"></script>
     <script src="/scripts/main/vines.js"></script>
     <script src="/scripts/main/header.js"></script>
-    <script>
-        document.querySelectorAll('.tab-btn').forEach(button => {
-          button.addEventListener('click', () => {
-            const tabId = button.dataset.tab;
-      
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
-      
-            button.classList.add('active');
-            document.getElementById(tabId).classList.add('active');
-          });
-        });
-      </script>
-      <script>
-        function stretchTabPanel() {
-          const tabPanel = document.querySelector('.tab-panel.active');
-          if (!tabPanel) return;
-      
-          const top = tabPanel.getBoundingClientRect().top + window.scrollY;
-          const height = window.innerHeight - top;
-          tabPanel.style.height = `${height}px`;
-          tabPanel.style.overflowY = 'auto';
-        }
-      
-        document.querySelectorAll('.tab-btn').forEach(button => {
-          button.addEventListener('click', () => {
-            const tabId = button.dataset.tab;
-      
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-panel').forEach(panel => {
-              panel.classList.remove('active');
-              panel.style.height = '';
-            });
-      
-            button.classList.add('active');
-            const activePanel = document.getElementById(tabId);
-            activePanel.classList.add('active');
-      
-            stretchTabPanel(); 
-          });
-        });
-      
-        window.addEventListener('load', stretchTabPanel);
-        window.addEventListener('resize', stretchTabPanel);
-      </script>
-      <script>
-const containers = document.querySelectorAll('.grid-container');
-
-containers.forEach(container => {
-  const items = Array.from(container.querySelectorAll('.grid-item'));
-
-  items.sort((a, b) => {
-    const descA = a.querySelector('.seedDesc').textContent.toLowerCase();
-    const descB = b.querySelector('.seedDesc').textContent.toLowerCase();
-    return descA.localeCompare(descB);
-  });
-
-  items.forEach(item => container.appendChild(item));
-});
-      </script>
-      <script>
-        if (navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome')) {
-  document.querySelectorAll('.tab-btn').forEach(el => {
-    el.style.transition = 'none';
-  });
-}
-
-      </script>
+    <script src="/scripts/seeds/tabs.js"></script>
+    <script src="/scripts/seeds/tabpanel.js"></script>
+    <script src="/scripts/seeds/absort.js"></script>
+    <script src="/scripts/seeds/webkitfix.js"></script>
       
       
       

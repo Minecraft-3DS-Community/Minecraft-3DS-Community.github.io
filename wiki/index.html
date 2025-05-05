@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Minecraft 3DS Community Wiki" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.minecraft3ds.org/" />
+  <meta name="description" content="Tutorials and documentation for Minecraft: New Nintendo 3DS Edition." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/Minecraft-3DS-Community/Minecraft-3DS-Community.github.io/refs/heads/main/seeds/img/noimg.png" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://www.minecraft3ds.org/" />
+  <meta property="twitter:title" content="Minecraft 3DS Community Wiki" />
+  <meta property="twitter:description" content="Tutorials and documentation for Minecraft: New Nintendo 3DS Edition." />
+  <meta property="twitter:image" content="https://raw.githubusercontent.com/Minecraft-3DS-Community/Minecraft-3DS-Community.github.io/refs/heads/main/seeds/img/noimg.png" />
+  <link href="/style.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
+  <link rel="stylesheet" href="/plugins/flickity/flickity.css" media="screen">
+  <script src="/plugins/flickity/flickity.pkgd.js"></script>
+  <title>Wiki &#8226 Minecraft 3DS Community</title>
+  <style>
+    body {
+      background-color: rgb(249, 239, 207);
+      transition: 0.5s;
+    }
+    .wikiHeader {
+      height: 145px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      font-family: 'Minecraft Regular';
+      background: linear-gradient(rgba(255, 240, 185, 0.4), rgba(255, 246, 165, 0.5)), url(/img/bg/chiseled_quartz_block_top.png);
+      background-size: 32px;
+      image-rendering: pixelated;
+      color: rgba(0, 0, 0, 0.8);
+      font-size: 16pt;
+      padding: 15px;
+      gap: 8px;
+      border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+      margin-top: 3px;
+    }
+    .wikiHeader img {
+      width: 32px;
+      filter: drop-shadow(0 0 1px black);
+    }
+    .settingsButton {
+      position: absolute;
+      right: 15px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background-color: transparent;
+      transform: translateY(3px);
+    }
+    .settingsButton:hover {
+      cursor: pointer;
+      transition: 0.05s;
+      background-color: rgba(0, 0, 0, 0.1);
+      background-position: bottom;
+      border-radius: 5px;
+    }
+    .settingsButton img {
+      position: relative;
+      bottom: 3px;
+    }
+    .settingsModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      color: rgba(0, 0, 0, 0.8);
+    }
+    .settingsContent {
+      background-color: #eee;
+      padding: 25px;
+      padding-left: 14px;
+      padding-top: 20px;
+      box-shadow: 0 0 10px black;
+      position: relative;
+      font-family: 'Minecraft Regular';
+      border: 2px solid black; 
+      outline: 2px solid rgba(255, 255, 255, 0.8);
+    }
+    .closeButton {
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      border: none;
+      background: none;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .closeButton:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      color: rgba(255, 255, 255, 1);
+      outline: 2px solid rgba(255, 255, 255, 0.8);
+    }
+    .dark-mode {
+      background-color: rgb(16, 17, 24);
+      transition: 0.5s;
+    }
+    .settingsContent input:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+      <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 3.5em; display: flex; align-items: center;" class="header">
+        <a href="/" style="text-indent: 1rem;">
+            <span style="color: white; font-size: 20pt; filter: drop-shadow(0 3px 3px black); margin-left: 45px;" class="logo">
+                <img src="/img/New_Nintendo_3DS_Edition.webp" style="width: 180px; vertical-align: middle; position: relative; bottom: 3px; image-rendering: auto;">
+                <span style="position: absolute; display: inline-block; color: yellow; transform-origin: left; transform: translateX(-100px) translateY(25px) scale(0.65) rotate(-15deg); animation: scaleText 2s ease-in-out infinite;">
+                    Community
+                </span>
+            </span>
+        </a>
+    
+        <div id="vines" class="vines">
+        </div>
+
+        <div class="vines" id="leftVines">
+          <img src="/img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 0;">
+          <img src="/img/bg/vine.png" style="width: 32px; position: absolute; left: 32px; top: 32px;">
+        </div>
+        <!--wyndchyme was here. These left vines will only appear on smaller video widths.-->
+    </div>
+    
+
+    <div class="dropDownContainer closed">
+        <div class="dropDown">
+            <div id="dropDownContent"></div>
+        </div>
+        <div class="dropDownButton" id="dropDownToggle">
+            <img src="/img/gui/arrow.png" style="width: 32px;" id="dropDownArrow">
+        </div>
+      </div>
+
+      <div class="wikiHeader">
+        <img src="/img/gui/faqs.png">Wiki & Documentation
+        <button class="settingsButton">
+          <img src="/img/gui/config.png">
+        </button>
+      </div>
+
+
+      <div id="settingsModal" class="settingsModal">
+        <div class="settingsContent">
+          <span style="font-size: 14pt; background-color: rgba(0, 0, 0, 0.2); padding: 5px; padding-left: 10px; padding-right: 10px; border: 2px solid rgba(0, 0, 0, 0.4); outline: 2px solid rgba(173, 173, 173, 0.6);">Settings</span><br><br>
+        <button class="closeButton">&times;</button><br>
+        <label>
+        <input type="checkbox" id="darkModeToggle"> Enable Dark Mode<br><br>
+        </label>
+        </div>
+      </div>
+
+    <script src="/scripts/main/dropdown.js"></script>
+    <script src="/scripts/main/vines.js"></script>
+    <script src="/scripts/main/header.js"></script>
+    <script>
+      const settingsBtn = document.querySelector('.settingsButton');
+      const modal = document.getElementById('settingsModal');
+      const closeBtn = document.querySelector('.closeButton');
+      const darkToggle = document.getElementById('darkModeToggle');
+    
+      // Open and close modal
+      settingsBtn.onclick = () => modal.style.display = 'flex';
+      closeBtn.onclick = () => modal.style.display = 'none';
+    
+      // Toggle dark mode and save state
+      darkToggle.onchange = () => {
+        const isDark = darkToggle.checked;
+        document.body.classList.toggle('dark-mode', isDark);
+        localStorage.setItem('darkModeEnabled', isDark);
+      };
+    
+      // Load saved state on page load
+      window.onload = () => {
+        const saved = localStorage.getItem('darkModeEnabled') === 'true';
+        darkToggle.checked = saved;
+        document.body.classList.toggle('dark-mode', saved);
+      };
+    </script>
+    
+    
+    
+  </body>
+  </html>
