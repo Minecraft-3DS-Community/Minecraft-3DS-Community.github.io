@@ -68,6 +68,7 @@
       width: calc(100% - 6vw);
       left: 1.5vw;
       line-height: 1.5;
+      padding-bottom: 100px;
     }
     .toolsBody ul {
       list-style-type: disc;
@@ -104,6 +105,25 @@
       transform: scale(1.02);
       filter: brightness(1.1);
     }
+    .banner {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: fit-content;    
+      padding: 5px;    
+      background: linear-gradient(rgba(255, 100, 0, 0.7), rgba(255, 102, 0, 0.7)), url(/img/bg/chiseled_quartz_block_top.png);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;             
+      font-family: 'Minecraft Regular';
+      font-size: 14pt;
+      color: #220d04;
+      background-size: 32px;
+      image-rendering: pixelated;
+    }
+
   </style>
 </head>
 <body>
@@ -192,7 +212,7 @@
           <span class="bulletHeader">
             <img src="/img/gui/oreui/behaviorpacks.png">Main Tools
           </span>
-          <li><a href="https://github.com/Cracko298/CombinedAudioTool">CombinedAudioTool (CATool)</a></li>
+          <li><a href="https://github.com/Cracko298/CombinedAudioTool">CATool</a></li>
           <li><a href="https://github.com/STBrian/MC3DS-Texture-Maker">MC3DS Texture Maker</a></li>
           <li><a href="https://github.com/MC3DS-Save-Research/3DS-Chunker">3DS Chunker</a></li>
           <li><a href="https://github.com/Cracko298/3DS-Chunker-GUI">3DS Chunker GUI</a></li>
@@ -232,19 +252,27 @@
           <li><a href="https://github.com/BJTMastermind/MC3dst-Parser">MC3DST Parser</a></li>
           <li><a href="https://github.com/STBrian/pyBjson">pyBjson</a></li>
         </ul>
-        <ul>
+        <ul style="padding-bottom: 100px;">
           <span class="bulletHeader">
             <img src="/img/gui/oreui/resourcepacks.png">Other
           </span>
           <li><a href="/tools/onlinemodmaker/">Online Mod Maker</a></li>
           <li><a href="/tools/negativeseed/">Negative Seed Calculator</a></li>
           <li><a href="/tools/blockstomegabytes/">Blocks to Megabytes Calculator</a></li>
+          <li><a href="https://pizza-beep.github.io/MegaPack-seed-picker/">MegaPack Seed Picker</a></li>
         </ul>
+      </div>
+      </div>
+
+
       </div>
 
          
       
-
+      <div class="banner">
+        Tools linked on this page belong to their respective owners.
+      </div>      
+      
     <script src="/scripts/main/dropdown.js"></script>
     <script src="/scripts/main/vines.js"></script>
     <script src="/scripts/main/header.js"></script>
@@ -256,6 +284,7 @@
 });
 
     </script>
+    
     
   </body>
   </html>
