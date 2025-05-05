@@ -17,7 +17,7 @@
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
   <link rel="stylesheet" href="/plugins/flickity/flickity.css" media="screen">
   <script src="/plugins/flickity/flickity.pkgd.js"></script>
-  <title>Wiki &#8226 Home &#8226 Minecraft 3DS Community</title>
+  <title>Editing Audio &#8226 Home &#8226 Minecraft 3DS Community</title>
   <style>
     body {
       background-color: rgb(249, 239, 207);
@@ -181,7 +181,6 @@
          border-collapse: collapse;
          padding: 5px;
     }
-
   </style>
 </head>
 <body>
@@ -234,56 +233,23 @@
       </div>
 
       <div class="wikiBody">
-        <h1>Home</h1>
-        <hr>
-        <h2>Tutorials</h2>
-        <div style="text-indent: 1em; font-size: 13pt;"><a href="/wiki/tutorials/">All tutorials (A-Z)</a></div><br>
-        <div class="column-list">
-          <ul>
-            <!--wyndchyme was here. These get sorted automatically by alphabet.-->
-            <li>
-              <strong><a href="/wiki/tutorials/customskins/">Custom Skins</a></strong><br>
-              <span class="desc">How to create custom skins and import them into your game.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/dumpromfs/">Dump RomFS</a></strong><br>
-              <span class="desc">Learn how to dump game files and use tools to open certain file types.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/editingaudio/">Editing Audio</a></strong><br>
-              <span class="desc">Learn how to edit or replace in-game audio files.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/editingshaders/">Editing Shaders</a></strong><br>
-              <span class="desc">Create your own styled graphics.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/installinganduploadingunistorecontent/">Installing and Uploading Unistore Content</a></strong><br>
-              <span class="desc">Learn how to edit the Unistore and download content.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/jsonediting/">JSON Editing</a></strong><br>
-              <span class="desc">Learn JSON commands and how to use them.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/creatingtexturepacks/">Creating Texture Packs</a></strong><br>
-              <span class="desc">Create and apply custom textures to blocks and mobs.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/bjsonediting/">BJSON Editing</a></strong><br>
-              <span class="desc">Learn how to open and edit BJSON files.</span>
-            </li>
-          </ul>
-        </div>
-        <br>
-        <h2>Modder Biographies</h2>
-        <i>Check back in on this section for updates.</i>
-        <br>
-        <br>
-        <h1>NOTICE</h1>
-        Many of these pages are still under construction. Please stand by.
-        <br>
-        <br>
+        <h1>Editing Audio</h1>
+    <p>You can replace in-game Audio with your own custom SFX/ambience using CATool.</p>
+
+    <ol style="line-height: 1.4;">
+      <li>Download and extract CATool or update to v2.4 via the <code>--upd</code> flag after calling the script. Example: <code>python CATool.py --upd</code>.</li><br>
+      <li>Extract the <code>CombinedAudio.bin</code> archive file using the <code>--eca</code> Flag.</li><br>
+      <li>Extract the header using the <code>--gh</code> Flag.</li><br>
+      <li>Ensure your audio file is lower quality. As analog audio (*.dsp and *.fsb) can be large, a bit-rate of roughly 96kbps is recommended.</li><br>
+      <li>Convert your audio to WAV format if necessary.</li><br>
+      <li>Convert your new wave audio file to <code>*.dsp</code> format.</li><br>
+      <li>Convert your new <code>*.dsp</code> Audio to FMOD sound bank format <code>*.fsb</code>.</li><br>
+      <li>Add padding as needed for audio, using the <code>--ap</code> Flag for automation.</li><br>
+      <li>Replace the segment file of your choice. The replacement file must have the same name and file-size as the original (e.g., replacing <code>segment_118.fsb</code> requires deleting the original and using the same name).</li><br>
+      <li>Rebuild the <code>CombinedAudio.bin</code> archive file using the <code>--rca</code> flag. Ensure you have previously dumped the header using <code>--gh</code>.</li>
+    </ol>
+
+    <p>Your <code>CombinedAudio.bin</code> might not work perfectly. This tool is still a WIP, so check for updates regularly.</p>
       </div>
       
 
@@ -291,7 +257,6 @@
     <script src="/scripts/main/vines.js"></script>
     <script src="/scripts/main/header.js"></script>
     <script src="/scripts/wiki/darkmode.js"></script> 
-    <script src="/scripts/wiki/absort.js"></script>
     
 
     

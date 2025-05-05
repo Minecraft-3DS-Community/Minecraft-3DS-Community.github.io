@@ -17,7 +17,7 @@
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
   <link rel="stylesheet" href="/plugins/flickity/flickity.css" media="screen">
   <script src="/plugins/flickity/flickity.pkgd.js"></script>
-  <title>Wiki &#8226 BLANK &#8226 Minecraft 3DS Community</title>
+  <title>BLANK &#8226 Home &#8226 Minecraft 3DS Community</title>
   <style>
     body {
       background-color: rgb(249, 239, 207);
@@ -113,6 +113,75 @@
     .settingsContent input:hover {
       cursor: pointer;
     }
+    .wikiBody {
+      color: rgba(17, 17, 17, 0.9);
+      transition: 0.5s;
+      line-height: 1.5;
+      max-width: 1200px;
+      width: 100%;
+      margin-left: 1vw;
+      margin-right: auto;
+      padding-left: 3vw;
+      padding-right: 3vw;
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue' !important;
+      padding-bottom: 50px;
+    }
+    h2 {
+      font-family: 'Helvetica Neue';
+    }
+    h3 {
+        font-family: 'Helvetica Neue';
+    }
+    .whiteText {
+      color: rgb(238, 242, 255) !important;
+      transition: 0.5s;
+    }
+    .column-list {
+      overflow-y: auto;
+      column-width: 250px;
+      column-gap: 2rem;
+    }
+    .column-list ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin: 0;
+    }
+    .column-list li {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+    }
+    .column-list .desc {
+      display: block;
+      font-size: 0.9em;
+      margin-top: 0.3rem;
+      color: rgb(80, 80, 80);
+      transition: 0.5s;
+    }
+    .whiteText .desc {
+      color: rgb(196, 202, 213);
+    }
+    a {
+      color: rgb(36, 65, 153);
+      text-decoration: none;
+      transition: 0.1s;
+    }
+    a:hover {
+      color: rgb(87, 116, 204);
+      transition: 0.1s;
+    }
+    .whiteText a {
+      color: rgb(159, 183, 255);
+    }
+    .whiteText a:hover {
+      color: rgb(99, 125, 204);
+    }
+    table, td, th {
+        border: 1px solid black;
+         border-collapse: collapse;
+         padding: 5px;
+    }
+
   </style>
 </head>
 <body>
@@ -164,10 +233,17 @@
         </div>
       </div>
 
+      <div class="wikiBody">
+        <h1>Write basic markup here.</h1>
+      </div>
+      
+
     <script src="/scripts/main/dropdown.js"></script>
     <script src="/scripts/main/vines.js"></script>
     <script src="/scripts/main/header.js"></script>
     <script src="/scripts/wiki/darkmode.js"></script> 
+    
+
     
     
     

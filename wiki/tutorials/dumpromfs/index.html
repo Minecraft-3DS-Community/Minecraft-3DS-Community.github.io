@@ -17,7 +17,7 @@
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
   <link rel="stylesheet" href="/plugins/flickity/flickity.css" media="screen">
   <script src="/plugins/flickity/flickity.pkgd.js"></script>
-  <title>Wiki &#8226 Home &#8226 Minecraft 3DS Community</title>
+  <title>Dump RomFS &#8226 Home &#8226 Minecraft 3DS Community</title>
   <style>
     body {
       background-color: rgb(249, 239, 207);
@@ -234,56 +234,54 @@
       </div>
 
       <div class="wikiBody">
-        <h1>Home</h1>
-        <hr>
-        <h2>Tutorials</h2>
-        <div style="text-indent: 1em; font-size: 13pt;"><a href="/wiki/tutorials/">All tutorials (A-Z)</a></div><br>
-        <div class="column-list">
-          <ul>
-            <!--wyndchyme was here. These get sorted automatically by alphabet.-->
-            <li>
-              <strong><a href="/wiki/tutorials/customskins/">Custom Skins</a></strong><br>
-              <span class="desc">How to create custom skins and import them into your game.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/dumpromfs/">Dump RomFS</a></strong><br>
-              <span class="desc">Learn how to dump game files and use tools to open certain file types.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/editingaudio/">Editing Audio</a></strong><br>
-              <span class="desc">Learn how to edit or replace in-game audio files.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/editingshaders/">Editing Shaders</a></strong><br>
-              <span class="desc">Create your own styled graphics.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/installinganduploadingunistorecontent/">Installing and Uploading Unistore Content</a></strong><br>
-              <span class="desc">Learn how to edit the Unistore and download content.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/jsonediting/">JSON Editing</a></strong><br>
-              <span class="desc">Learn JSON commands and how to use them.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/creatingtexturepacks/">Creating Texture Packs</a></strong><br>
-              <span class="desc">Create and apply custom textures to blocks and mobs.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/bjsonediting/">BJSON Editing</a></strong><br>
-              <span class="desc">Learn how to open and edit BJSON files.</span>
-            </li>
-          </ul>
-        </div>
-        <br>
-        <h2>Modder Biographies</h2>
-        <i>Check back in on this section for updates.</i>
-        <br>
-        <br>
-        <h1>NOTICE</h1>
-        Many of these pages are still under construction. Please stand by.
-        <br>
-        <br>
+        <h1>How to Dump and Extract RomFS</h1>
+    <h2>Prerequisites</h2>
+    <p>
+      Your console needs to have custom firmware (CFW) installed. If you do not have it, please go to 
+      <a href="https://3ds.hacks.guide" target="_blank">https://3ds.hacks.guide</a> and follow the guide for installing it there.
+    </p>
+    <p>
+      Make sure the latest version of GodMode9 is installed, it can be downloaded here: 
+      <a href="https://github.com/d0k3/GodMode9/releases/tag/v2.1.1" target="_blank">GodMode9 v2.1.1</a>.
+    </p>
+    <p>
+      To open it, make sure the console is powered off, then press the Start button to load the Luma Chain Loader menu. Select GodMode9 to launch it.
+    </p>
+    <p>
+      If you want to dump your cartridge, make sure it is inside of the system.
+    </p>
+
+    <h2>Dumping</h2>
+    <p>
+      Dumping the base game (1.0) is not necessary but should be done just in case. 
+      Its RomFS is not referenced much when modding, but if you want to do things like make custom music, 
+      for example, then you will have to dump it.
+    </p>
+    <p>
+      You will need to dump the game's update (1.9) to do anything for modding, 
+      as most things will apply to the update.
+    </p>
+
+    <h3>Dumping the Cartridge (1.0)</h3>
+    <ol>
+      <li>Open GodMode9</li>
+      <li>Navigate to <code>[C:] GAMECART</code></li>
+      <li>Press A on <code>[TitleID].trim.3ds</code></li>
+      <li>Select “Copy to 0:/gm9/out”</li>
+    </ol>
+
+    <h3>Dumping the Base Game (1.0)</h3>
+    <ol>
+      <li>Open GodMode9</li>
+      <li>Navigate to <code>[A:] SYSNAND SD</code></li>
+      <li>Select "title"</li>
+      <li>Press the Right Shoulder button and A</li>
+      <li>Select "Search for titles"</li>
+      <li>Select <code>[TitleID] Minecraft: New Nintendo 3DS Edition (KTR-BD3E-</code></li>
+    </ol>
+
+    <h3>Dumping the Update (1.9)</h3>
+    <p>Follow the same steps as for the base game but locate the update title instead.</p>
       </div>
       
 
@@ -291,7 +289,6 @@
     <script src="/scripts/main/vines.js"></script>
     <script src="/scripts/main/header.js"></script>
     <script src="/scripts/wiki/darkmode.js"></script> 
-    <script src="/scripts/wiki/absort.js"></script>
     
 
     
