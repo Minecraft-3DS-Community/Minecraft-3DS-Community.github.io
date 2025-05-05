@@ -113,6 +113,51 @@
     .settingsContent input:hover {
       cursor: pointer;
     }
+    .wikiBody {
+      color: rgb(17, 17, 17);
+      transition: 0.5s;
+      line-height: 1.5;
+      max-width: 1200px;
+      width: 100%;
+      margin-left: 1vw;
+      margin-right: auto;
+      padding-left: 3vw;
+      padding-right: 3vw;
+      box-sizing: border-box;
+      font-family: 'Helvetica' !important;
+    }
+    h2 {
+      font-family: 'Helvetica';
+    }
+
+    .whiteText {
+      color: white;
+      transition: 0.5s;
+    }
+    .column-list {
+      overflow-y: auto;
+      column-width: 250px;
+      column-gap: 2rem;
+    }
+
+    .column-list ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin: 0;
+    }
+
+    .column-list li {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+    }
+
+    .column-list .desc {
+      display: block;
+      color: #555;
+      font-size: 0.9em;
+      margin-top: 0.3rem;
+    }
+
   </style>
 </head>
 <body>
@@ -164,10 +209,62 @@
         </div>
       </div>
 
+      <div class="wikiBody">
+        <h1>Home</h1>
+        <hr>
+        <h2>Tutorials</h2>
+        <div class="column-list">
+          <ul>
+            <li>
+              <strong>Custom Skins</strong><br>
+              <span class="desc">How to create custom skins and import them into your game.</span>
+            </li>
+            <li>
+              <strong>Dump RomFS</strong><br>
+              <span class="desc">Learn how to dump game files and use tools to open certain file types.</span>
+            </li>
+            <li>
+              <strong>Editing Audio</strong><br>
+              <span class="desc">Learn how to edit or replace in-game audio files.</span>
+            </li>
+            <li>
+              <strong>Editing Shaders</strong><br>
+              <span class="desc">Create your own styled graphics.</span>
+            </li>
+            <li>
+              <strong>Installing and Uploading Unistore Content</strong><br>
+              <span class="desc">Learn how to edit the Unistore and download content.</span>
+            </li>
+            <li>
+              <strong>JSON Editing</strong><br>
+              <span class="desc">Learn JSON commands and how to use them.</span>
+            </li>
+            <li>
+              <strong>Creating Texture Packs</strong><br>
+              <span class="desc">Create and apply custom textures to blocks and mobs.</span>
+            </li>
+            <li>
+              <strong>BJSON Editing</strong><br>
+              <span class="desc">Learn how to open and edit BJSON files.</span>
+            </li>
+          </ul>
+        </div>
+        See all tutorials (A-Z)
+        <br>
+        <h2>Modder Biographies</h2>
+        <i>Check back in on this section for updates.</i>
+        <br>
+        <br>
+        <br>
+      </div>
+      
+
     <script src="/scripts/main/dropdown.js"></script>
     <script src="/scripts/main/vines.js"></script>
     <script src="/scripts/main/header.js"></script>
     <script src="/scripts/wiki/darkmode.js"></script> 
+    <script src="/scripts/wiki/absort.js"></script>
+    
 
     
     
