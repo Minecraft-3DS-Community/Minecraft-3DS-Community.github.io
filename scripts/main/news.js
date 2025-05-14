@@ -1,4 +1,4 @@
-fetch('/plugins/template/news.html')
+fetch(`/plugins/template/news.html?t=${Date.now()}`)
   .then(response => response.text())
   .then(html => {
     const container = document.getElementById('news');
