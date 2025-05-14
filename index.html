@@ -32,6 +32,12 @@
     .gallery-cell {
       border: 2px solid white;
     }
+    .flickity-viewport {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+    /* wyndchyme was here. The above is a fix for a stupid Flickity bug on Safari. Don't touch it. */
   </style>
 </head>
 <body>
@@ -153,6 +159,28 @@
 <script src="scripts/main/sidebarfit.js"></script>
 <script src="/scripts/main/header.js"></script>
 <script src="/scripts/main/posswap.js"></script>  
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var flkty = new Flickity('.carousel', {
+      cellAlign: 'left',
+      contain: true,
+      wrapAround: true
+    });
+
+    // Add a tiny, invisible transition to prevent Safari freeze
+    var carouselElement = document.querySelector('.carousel');
+    carouselElement.style.transition = 'transform 0.1ms ease'; // Invisible transition
+
+    // Optional: Force a dummy transform every so often to keep the moving state
+    setInterval(function () {
+      carouselElement.style.transform = 'translate3d(0, 0, 0)';
+    }, 1000); // Adjust interval as needed
+  });
+</script>
+
+
+
+
 
 
 </body>
