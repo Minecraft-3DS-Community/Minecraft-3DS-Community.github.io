@@ -18,7 +18,7 @@
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
   <link rel="stylesheet" href="/plugins/flickity/flickity.css" media="screen">
   <script src="/plugins/flickity/flickity.pkgd.js"></script>
-  <title>Wiki &#8226 Editing Audio &#8226 Minecraft 3DS Community</title>
+  <title>Tutorials &#8226 Editing Audio &#8226 Minecraft 3DS Community</title>
   <style>
   </style>
 </head>
@@ -54,7 +54,7 @@
       </div>
 
       <div class="wikiHeader">
-        <img src="/img/gui/faqs.png">Wiki & Documentation
+        <img src="/img/gui/faqs.png">Tutorials & Docs
         <button class="settingsButton">
           <img src="/img/gui/config.png">
         </button>
@@ -73,7 +73,7 @@
 
       <div class="wikiBody">
         <h1>Editing Audio</h1>
-    <p>You can replace in-game Audio with your own custom SFX/ambience using CATool.</p>
+    <p>You can replace in-game audio with your own custom SFX/ambience using CATool.</p>
 
     <ol style="line-height: 1.4;">
       <li>Download and extract CATool or update to v2.4 via the <code>--upd</code> flag after calling the script. Example: <code>python CATool.py --upd</code>.</li><br>
@@ -82,13 +82,13 @@
       <li>Ensure your audio file is lower quality. As analog audio (*.dsp and *.fsb) can be large, a bit-rate of roughly 96kbps is recommended.</li><br>
       <li>Convert your audio to WAV format if necessary.</li><br>
       <li>Convert your new wave audio file to <code>*.dsp</code> format.</li><br>
-      <li>Convert your new <code>*.dsp</code> Audio to FMOD sound bank format <code>*.fsb</code>.</li><br>
+      <li>Convert your new <code>DSP</code> Audio to FMOD sound bank format <code>FSB</code>.</li><br>
       <li>Add padding as needed for audio, using the <code>--ap</code> Flag for automation.</li><br>
       <li>Replace the segment file of your choice. The replacement file must have the same name and file-size as the original (e.g., replacing <code>segment_118.fsb</code> requires deleting the original and using the same name).</li><br>
       <li>Rebuild the <code>CombinedAudio.bin</code> archive file using the <code>--rca</code> flag. Ensure you have previously dumped the header using <code>--gh</code>.</li>
     </ol>
 
-    <p>Your <code>CombinedAudio.bin</code> might not work perfectly. This tool is still a WIP, so check for updates regularly.</p>
+    <p>Your new <code>CombinedAudio.bin</code> might not work perfectly. This tool is still a WIP, so check for updates regularly.</p>
       </div>
       
 

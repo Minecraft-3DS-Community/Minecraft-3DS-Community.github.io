@@ -160,3 +160,9 @@ body {
        border-collapse: collapse;
        padding: 5px;
   }
+  code {
+    font-size: 11pt;
+  }
+  iframe {
+    max-width: 100%;
+  }
