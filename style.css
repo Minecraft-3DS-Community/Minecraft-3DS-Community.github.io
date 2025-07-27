@@ -425,7 +425,7 @@ body {
 
 .newsHeader {
     text-align: left;
-    position: relative;
+    position: sticky;
     z-index: 6;
     bottom: 4px;
     padding-bottom: 5px;
