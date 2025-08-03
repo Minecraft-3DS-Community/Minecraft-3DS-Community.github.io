@@ -42,6 +42,9 @@ body {
     background-position: bottom;
     border-radius: 5px;
   }
+  .settingsButton:active {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
   .settingsButton img {
     position: relative;
     bottom: 3px;
@@ -84,6 +87,9 @@ body {
     cursor: pointer;
     color: rgba(255, 255, 255, 1);
     outline: 2px solid rgba(255, 255, 255, 0.8);
+  }
+  .closeButton:active {
+    background-color: rgba(0, 0, 0, 0.2);
   }
   .dark-mode {
     background-color: rgb(16, 17, 24);
