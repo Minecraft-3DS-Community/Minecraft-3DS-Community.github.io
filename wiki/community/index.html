@@ -18,7 +18,7 @@
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico?">
   <link rel="stylesheet" href="/plugins/flickity/flickity.css" media="screen">
   <script src="/plugins/flickity/flickity.pkgd.js"></script>
-  <title>Tutorials &#8226 Home &#8226 Minecraft 3DS Community</title>
+  <title>Community &#8226 A-Z &#8226 Minecraft 3DS Community</title>
   <style>
   </style>
 </head>
@@ -72,60 +72,15 @@
       </div>
 
       <div class="wikiBody">
-        <h1>Home</h1>
+        <h1>Community Pages A-Z</h1>
         <hr>
-        <h2>Tutorials</h2>
-        <div style="text-indent: 1em; font-size: 13pt;"><a href="/wiki/tutorials/">All tutorials (A-Z)</a></div><br>
-        <div class="column-list">
-          <ul>
-            <!--wyndchyme was here. These get sorted automatically by alphabet.-->
+        <ul style="line-height: 3;">
+            <!--wyndchyme was here. These get sorted automatically by the script at the bottom of the page.-->
             <li>
-              <strong><a href="/wiki/tutorials/customskins/">Custom Skins</a></strong><br>
-              <span class="desc">How to create custom skins and import them into your game.</span>
+                <a href="/wiki/community/staffapps/">Staff Applications</a>
             </li>
-            <li>
-              <strong><a href="/wiki/tutorials/dumpromfs/">Dump RomFS</a></strong><br>
-              <span class="desc">Learn how to dump game files and use tools to open certain file types.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/editingaudio/">Editing Audio</a></strong><br>
-              <span class="desc">Learn how to edit or replace in-game audio files.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/editingshaders/">Editing Shaders</a></strong><br>
-              <span class="desc">Create your own styled graphics.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/installinganduploadingunistorecontent/">Installing and Uploading Unistore Content</a></strong><br>
-              <span class="desc">Learn how to edit the Unistore and download content.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/jsonediting/">JSON Editing</a></strong><br>
-              <span class="desc">Learn JSON commands and how to use them.</span>
-            </li>
-            <li>
-              <strong><a href="/wiki/tutorials/bjsonediting/">BJSON Editing</a></strong><br>
-              <span class="desc">Learn how to open and edit BJSON files.</span>
-            </li>
-          </ul>
-        </div>
-        <br>
 
-        <hr>
-
-        <h2>Community</h2>
-        <div style="text-indent: 1em; font-size: 13pt;"><a href="/wiki/community/">All community pages (A-Z)</a></div><br>
-        <div class="column-list">
-          <ul>
-            <!--wyndchyme was here. These get sorted automatically by alphabet.-->
-            <li>
-              <strong><a href="/wiki/community/staffapps/">Staff Applications</a></strong><br>
-              <span class="desc">Questions and procedures required to submit an application to the Minecraft 3DS Community staff team.</span>
-            </li>
-          </ul>
-        </div>
-        <br>
-        <br>
+        </ul>
       </div>
       
 
@@ -133,7 +88,22 @@
     <script src="/scripts/main/vines.js"></script>
     <script src="/scripts/main/header.js"></script>
     <script src="/scripts/wiki/darkmode.js"></script> 
-    <script src="/scripts/wiki/absort.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const ul = document.querySelector(".wikiBody ul");
+          const items = Array.from(ul.querySelectorAll("li"));
+        
+          items.sort((a, b) => {
+            const textA = a.textContent.trim().toLowerCase();
+            const textB = b.textContent.trim().toLowerCase();
+            return textA.localeCompare(textB);
+          });
+        
+          ul.innerHTML = "";
+          items.forEach(item => ul.appendChild(item));
+        });
+        </script>
+        
     
 
     
