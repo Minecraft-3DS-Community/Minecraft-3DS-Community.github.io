@@ -72,10 +72,63 @@
       </div>
 
       <div class="wikiBody">
-        <h1>Custom Skins</h1>
-        <i>The video below contains a walkthrough of how to create custom skins.</i><br>
+        <h1>Creating and Importing Custom Skins</h1>
+        <h3>To get started with this guide, you will need the following:</h3>
+        <ul>
+          <li>A device capable of reading a microSD card or using FTP</li>
+          <li>A copy of <i>Minecraft: New Nintendo 3DS Edition</i> running version 1.9.19</li>
+          <li>An image for the skin you want to use</li>
+          <li>A Philips 00 screwdriver to access the microSD card</li>
+          <li>A copy of <a href="https://www.gamebrew.org/wiki/Ohana3DS_Rebirth">Ohana3DS</a></li>
+        </ul>
+        <p><i>It is also possible to use an app like FTPD on the 3DS to access files remotely, in case you don't have a screwdriver.</i></p>
+
+        <h2>Step-by-Step Guide</h2>
+        <ol>
+          <li>Power off your system, hold <b>START</b>, and press the power button to enter GodMode9.</li>
+          <li>Go to <b>SYSNAND SD</b>, then <b>title</b>, then <b>0004000e</b>, then go to the following folder based on your region:
+            <ul>
+              <li>EU: <code>000400000017CA00</code></li>
+              <li>JP: <code>000400000017FD00</code></li>
+              <li>US: <code>00040000001B8700</code></li>
+            </ul>
+          </li>
+          <li>Enter the <b>content</b> folder, find the largest <code>.app</code> file, and select it by pressing <b>A</b>.</li>
+          <li>Select <b>NCCH image options</b> on the bottom screen, then select <b>Mount image to drive</b>, then choose yes.</li>
+          <li>If done correctly, you should see several folders and files. Move the pointer to <b>romfs</b>, then press <b>A + R</b>.</li>
+          <li>Select <b>Copy to 0:/gm9/out</b> on the bottom screen, then press <b>B</b>.</li>
+          <li>Press <b>START + R</b> to power the 3DS off.</li>
+          <li>Remove the microSD card if you aren't using FTPD. You will need a Philips 00 screwdriver to open the back of the console and access the microSD card.</li>
+          <li>Go to the root of the SD card, then <b>gm9</b> &rarr; <b>out</b>. If everything has been done correctly, you should have a <b>romfs</b> folder here.</li>
+          <li>Copy the entire <b>romfs</b> folder onto an empty folder on your computer. (We recommend a documents folder with little in it, to make it easier to find the <b>romfs</b> folder.)</li>
+          <li>Enter the folder you copied from your 3DS onto your PC and go to <code>resourcepacks/skins/skinpacks</code>. There should now be many folders that contain skin packs and their data.</li>
+          <li>You can use any skin pack, however we recommend the <b>PVP_Warriors</b> folder because it is already on your system and available, and it has no 3D models.</li>
+          <li>Enter the folder of your choice.<br>
+            <ul>
+              <li>If your skin is a Steve model (thicker arms), overwrite a file that <b>doesn't</b> have <code>slim</code> in the name.</li>
+              <li>If your skin is an Alex model, overwrite a file <b>with</b> <code>slim</code> in the name.</li>
+            </ul>
+          </li>
+          <li>Flip your skin using a website such as <a href="https://pinetools.com/flip-image" target="_blank">PineTools Flip Image</a>.</li>
+          <li>Open Ohana3DS, go to the top bar, select <b>Tools</b>, then <b>BCH texture replacer</b>.</li>
+          <li>Go to <b>File</b> in the top bar, pick <b>Open</b>, and select the skin you want to overwrite. After selecting it, press the <b>replace</b> button and pick the skin image you want to use. Then go to <b>File</b> and click <b>save</b>. Close Ohana3DS.</li>
+          <li>Open the root of your SD card, go to the <b>luma</b> folder, then <b>titles</b>, and create a folder. The name will depend on your region:
+            <ul>
+              <li>EU: <code>000400000017CA00</code></li>
+              <li>JP: <code>000400000017FD00</code></li>
+              <li>US: <code>00040000001B8700</code></li>
+            </ul>
+          </li>
+          <li>Create a folder inside the folder you just created called <b>romfs</b>, then another inside <b>romfs</b> called <b>resourcepacks</b>, then another called <b>skins</b>, then another called <b>skinpacks</b>, and finally another with the exact same name as your skin folder (e.g., <b>PVP_Warriors</b>).</li>
+          <li>Select the skin file you just made with Ohana3DS and copy it to your skin folder on the SD card.</li>
+          <li>Eject your SD card and insert it into your 3DS. Make sure the 3DS is off, then hold the <b>select</b> button as you turn it on. You should now see the Luma3DS configuration screen.</li>
+          <li>Make sure that the <b>Enable game patching</b> option is turned on, then press <b>START</b>.</li>
+          <li>Open Minecraft 3DS Edition. If you did everything right, your skin should now show up!</li>
+        </ol>
+        <hr>
         <br>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/zpUeEvCYXRE?si=EzJzxbSHxS8Souge" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        Guide by <b>TiredWharf</b><br>
+        Revised by <b>wyndchyme</b>
       </div>
       
 
