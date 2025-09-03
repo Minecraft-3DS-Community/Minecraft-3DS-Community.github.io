@@ -160,6 +160,7 @@
 <script src="/scripts/main/header.js"></script>
 <script src="/scripts/main/posswap.js"></script>  
 <script>
+  // To fix Flickity bug on Safari
   document.addEventListener("DOMContentLoaded", function () {
     var flkty = new Flickity('.carousel', {
       cellAlign: 'left',
@@ -167,14 +168,12 @@
       wrapAround: true
     });
 
-    // Add a tiny, invisible transition to prevent Safari freeze
     var carouselElement = document.querySelector('.carousel');
-    carouselElement.style.transition = 'transform 0.1ms ease'; // Invisible transition
+    carouselElement.style.transition = 'transform 0.1ms ease'; 
 
-    // Optional: Force a dummy transform every so often to keep the moving state
     setInterval(function () {
       carouselElement.style.transform = 'translate3d(0, 0, 0)';
-    }, 1000); // Adjust interval as needed
+    }, 1000);
   });
 </script>
 
