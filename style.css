@@ -522,14 +522,6 @@ gallerysubtitle a:hover {
 
 @media (max-width: 550px) {
     .copyrightDiv {
-        font-size: 9pt !important;
-        height: auto !important;
-    }
-}
-
-@media (max-width: 400px) {
-    .copyrightDiv {
-        font-size: 8pt !important;
-        height: auto !important;
+        display: none;
     }
 }
