@@ -187,331 +187,6 @@ body {
 .text-container h1, h2, h3 {
     font-family: 'Minecraft Regular';
 }
-  
-.main-text {
-    flex: 1 1 60%;
-    min-width: 250px;
-    margin-left: 15px;
-    margin-right: 15px;
-    height: 100%;
-}
-
-.homeBody {
-    position: relative;
-    top: 30px;
-    font-family: 'Minecraft Regular';
-    color: white;
-    font-size: 16pt;
-    line-height: 1.4;
-    text-indent: 1.5em;
-}
-
-.homeBody iframe {
-    width: calc(100% - 20px);
-    max-width: 600px;
-    height: 80%;
-    margin-left: 10px;
-    margin-right: 10px;
-    position: relative;
-    top: 10px;
-    border: 10px solid rgba(0, 0, 0, 0.3); box-sizing: border-box;
-}
-
-.didYouKnow {
-    width: 30%;
-    background-color: rgba(181, 207, 255, 0.35);
-    background-size: 32px;
-    position: absolute;
-    right: 0;
-    color: white;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    filter: drop-shadow(0 5px 2px rgba(0, 0, 0, 0.5));
-    min-height: 275px;
-    height: 400px
-}
-
-.didYouKnowHeader {
-    text-align: center;
-    color: white;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: rgba(255, 255, 255, 0.35);
-    background-size: 32px;
-    image-rendering: pixelated;
-    font-size: 16pt;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.75);
-    text-indent: 0 !important;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
-
-.didYouKnowHeader img {
-    height: 24px; 
-    width: auto; 
-    flex-shrink: 0; 
-    flex-grow: 0;  
-    image-rendering: pixelated;
-    position: absolute;
-    top: 7px;
-    left: 7px;
-}
-
-.featuredHeader {
-    display: flex;
-    justify-content: left;
-    margin-left: 10px;
-    text-indent: 0;
-    gap: 10px;
-}
-
-@media (max-width: 1000px) {
-    .didYouKnowHeader {
-        font-size: 11pt;
-    }
-    .didYouKnowBody {
-        font-size: 12pt !important;
-    }
-}
-
-@media (min-width: 1200px) {
-    .didYouKnowBody {
-        font-size: 18pt !important;
-    }
-}
-
-@media (max-width: 1200px) {
-    .didYouKnowHeader img {
-        display: none;
-    }
-}
-
-.didYouKnowBody {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 30px;
-    padding-top: 5px;
-    text-indent: 0;
-    flex: 1;
-    font-size: 15pt;
-    margin-top: 5px;
-}
-
-.featuredVideo {
-    background-color: rgba(255, 255, 255, 0.04);
-    filter: drop-shadow(0 5px 2px rgba(0, 0, 0, 0.5));
-}
-
-  
-.sidebar {
-    flex: 1 1 30%;
-    min-width: 200px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url(img/bg/stone.png);
-    background-size: 32px;
-    image-rendering: pixelated;
-    font-size: 12pt;
-    height: calc(100vh - 3.5em);
-    filter: drop-shadow(-5px 0px 5px rgba(0, 0, 0, 0.7));
-    overflow: scroll;
-    color: rgba(185, 185, 185, 0.9);
-    font-family: 'Minecraft Regular';
-}
-
-.news {
-    margin-left: 20px;
-    margin-right: 15px;
-}
-
-.news h1 {
-    color: rgb(224, 243, 255);
-    font-weight: normal !important;
-}
-
-.news h2 {
-    font-size: 15pt;
-    color: white;
-    text-decoration: underline;
-    background-color: rgba(255, 255, 255, 0.2);
-    padding-bottom: 5px;
-    padding-left: 5px;
-    font-weight: normal !important;
-}
-
-.news a {
-    color: rgb(184, 229, 255);
-}
-
-.news a:hover {
-    color: rgb(112, 183, 225);
-}
-  
-@media (max-width: 768px) {
-    .text-container {
-      flex-direction: column;
-      gap: 20px;
-    }
-    .sidebar {
-        border-left: none;
-        max-height: 300px;
-        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
-    }
-    .newsHeader {
-        position: relative;
-        top: 0px;
-        padding-top: 3px !important;
-    }
-    .main-text {
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .logo {
-        margin-left: 0 !important;
-        position: relative;
-        left: calc(50vw - 105px);
-    }
-    .dropDownContainer {
-        left: calc(50vw - 275px * 0.5);
-    }
-    #vines {
-        margin-left: -400px !important;
-    }
-    .homeBody {
-        position: absolute;
-        top: 615px;
-        margin-left: 25px !important;
-        margin-right: 25px !important;
-        font-size: 15pt;
-    }
-    .homeIntro {
-        position: relative;
-        right: 15px;
-    }
-    .didYouKnow {
-    width: 40vw;
-    }
-    .featuredVideo {
-        width: 50vw !important;
-    }
-    .didYouKnowHeader {
-        font-size: 14pt !important;
-    }
-    .didYouKnowHeader img {
-        display: block;
-        position: absolute;
-        top: 5px;
-        left: 7px;
-    }
-    .didYouKnowBody {
-        font-size: 17pt !important;
-    }
-}
-
-@media (max-width: 650px) {
-    .didYouKnow {
-        width: 100% !important;
-        position: relative;
-        height: fit-content;
-        margin-top: -10px !important;
-        margin-bottom: 10px;
-    }
-    .featuredVideo {
-        width: 100% !important;
-        max-height: 300px;
-        height: 75vw;
-    }
-}
-
-.newsHeader {
-    text-align: left;
-    position: sticky;
-    z-index: 6;
-    bottom: 4px;
-    padding-bottom: 5px;
-    padding-top: 10px;
-    font-size: 18pt;
-    font-family: 'Minecraft Regular';
-    color: rgba(0, 0, 0, 0.8);
-    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.4)), url(img/bg/stone_bricks.png);
-    background-size: 32px;
-    padding-left: 10px;
-    filter: drop-shadow(0 2px 2px black);
-    display: flex;
-    gap: 8px;
-}
-
-.newsHeader img {
-    height: 24px; 
-    width: auto; 
-    flex-shrink: 0; 
-    flex-grow: 0;  
-    image-rendering: pixelated;
-    position: relative;
-    top: 3px;
-}
-
-gallerysubtitle {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-family: 'Minecraft Regular';
-}
-
-gallerysubtitle a {
-    text-decoration: none;
-}
-
-gallerysubtitle a:hover {
-    text-decoration: underline;
-}
-
-* {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.gallery-cell {
-    margin-right: 10px;
-    background: skyblue;
-    counter-increment: gallery-cell;
-        width: 250px;
-        height: 150px;
-        margin-right: 10px;
-        display: flex;
-        overflow: hidden;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        color: #fff;
-}
-
-.gallery-cell:before {
-    display: block;
-    text-align: center;
-    content: none;
-    line-height: 200px;
-    font-size: 80px;
-    color: white;
-}
-
-.flickity-page-dots .dot {
-    width: 11px;
-    height: 11px;
-    opacity: 1;
-    background: skyblue !important;
-    transition: 0.5s;
-    border-radius: 0 !important;
-}
-
-.flickity-page-dots .dot.dot.is-selected {
-    background: teal;
-    transition: 0.5s;
-}
-
-.logoCell:hover {
-    cursor: pointer;
-}
 
 @font-face {
     font-family: 'Minecraft Regular';
@@ -523,5 +198,90 @@ gallerysubtitle a:hover {
 @media (max-width: 550px) {
     .copyrightDiv {
         display: none;
+    }
+}
+
+.gallery-cell {
+      border: 2px solid white;
+    }
+    .flickity-viewport {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    gallerysubtitle {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        font-family: 'Minecraft Regular';
+      }
+
+      gallerysubtitle a {
+          text-decoration: none;
+      }
+
+      gallerysubtitle a:hover {
+          text-decoration: underline;
+      }
+
+    * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .gallery-cell {
+        margin-right: 10px;
+        background: skyblue;
+        counter-increment: gallery-cell;
+            width: 250px;
+            height: 150px;
+            margin-right: 10px;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #fff;
+    }
+
+    .gallery-cell:before {
+        display: block;
+        text-align: center;
+        content: none;
+        line-height: 200px;
+        font-size: 80px;
+        color: white;
+    }
+
+    .flickity-page-dots .dot {
+        width: 11px;
+        height: 11px;
+        opacity: 1;
+        background: skyblue !important;
+        transition: 0.5s;
+        border-radius: 0 !important;
+    }
+
+    .flickity-page-dots .dot.dot.is-selected {
+        background: teal !important;
+        transition: 0.5s;
+    }
+
+    .logoCell:hover {
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+    .logo {
+        margin-left: 0 !important;
+        position: relative;
+        left: calc(50vw - 105px);
+    }
+    .dropDownContainer {
+        left: calc(50vw - 275px * 0.5);
+    }
+    #vines {
+        margin-left: -400px !important;
     }
 }
