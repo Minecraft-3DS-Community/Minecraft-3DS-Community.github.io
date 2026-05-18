@@ -1,6 +1,5 @@
 body {
     background-color: rgb(249, 239, 207);
-    transition: 0.5s;
   }
   .wikiHeader {
     height: 145px;
@@ -37,7 +36,6 @@ body {
   }
   .settingsButton:hover {
     cursor: pointer;
-    transition: 0.05s;
     background-color: rgba(0, 0, 0, 0.1);
     background-position: bottom;
     border-radius: 5px;
@@ -93,14 +91,12 @@ body {
   }
   .dark-mode {
     background-color: rgb(16, 17, 24);
-    transition: 0.5s;
   }
   .settingsContent input:hover {
     cursor: pointer;
   }
   .wikiBody {
     color: rgba(17, 17, 17, 0.9);
-    transition: 0.5s;
     line-height: 1.5;
     max-width: 1200px;
     width: 100%;
@@ -120,7 +116,6 @@ body {
   }
   .whiteText {
     color: rgb(238, 242, 255) !important;
-    transition: 0.5s;
   }
   .column-list {
     overflow-y: auto;
@@ -141,7 +136,6 @@ body {
     font-size: 0.9em;
     margin-top: 0.3rem;
     color: rgb(80, 80, 80);
-    transition: 0.5s;
   }
   .whiteText .desc {
     color: rgb(196, 202, 213);
